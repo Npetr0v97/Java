@@ -29,4 +29,45 @@ public class Dog extends Animal {
         this.teeth = teeth;
         this.coat = coat;
     }
+
+    public void chew() {
+
+        System.out.println("Dog Chews");
+    }
+
+
+    //@Override е индикатор, че правим презаписване на метод от класа, от който се наследява
+    //super.eat се връща към функцията от основния клас и извиква метода от там.
+    @Override
+    public void eat() {
+
+        System.out.println("Dog.eat() called");
+        chew();
+        super.eat();
+    }
+
+    private void moveLegs(int speed){
+
+        System.out.println("moveLegs. called");
+    }
+
+    @Override
+    public void move(int speed) {
+
+        System.out.println("Dog.move called");
+        moveLegs(speed);
+        super.move(speed);
+    }
+
+    public void walk() {
+
+        System.out.println("Dog.walk() called");
+        move(5);
+    }
+
+    public void run() {
+
+        System.out.println("Dog.run() run");
+        move(10);
+    }
 }

@@ -24,9 +24,9 @@ public class Animal {
         System.out.println("Animal Eats");
     }
 
-    public void move() {
+    public void move(int speed) {
 
-
+        System.out.println("The animal is running with speed: " + speed);
     }
 
     public String getName() {
