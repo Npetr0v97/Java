@@ -33,7 +33,7 @@ public class Menu {
     }
 
     public void classicBurgerMenu() {
-        System.out.println("You choose a Classic Burger!");
+        System.out.println("You chose a Classic Burger!");
 
         BaseBurger burger=new BaseBurger(breadType(),meatType(),1);
 
@@ -138,7 +138,7 @@ public class Menu {
     }
 
     public void deluxeBurgerMenu() {
-        System.out.println("You choose a Deluxe Burger!");
+        System.out.println("You chose a Deluxe Burger!");
         DeluxeBurger deluxeBurger=new DeluxeBurger(breadType(),meatType(),1);
         deluxeBurger.printBurgerStats();
 
@@ -175,7 +175,7 @@ public class Menu {
     }
 
     public String meatType(){
-        System.out.println("Choose the type of meat: \n1. Beef\n" +
+        System.out.println("Chose the type of meat: \n1. Beef\n" +
                 "2. Pork\n3. Chicken");
 
         int meatCode;
