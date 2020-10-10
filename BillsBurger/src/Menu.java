@@ -41,18 +41,18 @@ public class Menu {
 
         while (choice>0 && choice<=4) {
 
-            isInt=data.hasNextInt();
-            if (isInt) {
-                choice = data.nextInt();
-            } else {
-                System.out.println("Invalid number. Classic Burger chosen by default.");
-                choice=1;
-            }
-
             System.out.println("Choose additives: \n1. Extra lettuce" +
                     "\n2. Extra tomatoes\n3. Extra carrots" +
                     "\n4. Extra sauce\n5. I don't want more additives");
+            isInt=data.hasNextInt();
 
+            if (isInt) {
+                choice = data.nextInt();
+            } else {
+                System.out.println("Invalid choice.");
+                choice=0;
+            }
+            data.nextLine();
             switch (choice) {
                 case 1:
                     System.out.println("Lettuce added.");
@@ -61,12 +61,15 @@ public class Menu {
                 case 2:
                     System.out.println("Tomatoes added.");
                     burger.addTomatoQuantity();
+                    break;
                 case 3:
                     System.out.println("Carrots added.");
                     burger.addExtraSauceQuantity();
+                    break;
                 case 4:
                     System.out.println("Sauce added.");
                     burger.addExtraSauceQuantity();
+                    break;
                 default:
                     burger.printBurgerStats();
                     break;
@@ -80,10 +83,64 @@ public class Menu {
     public void healthyBurgerMenu() {
         System.out.println("You choose a Healthy Burger!");
 
+        HealthyBurger healthyBurger=new HealthyBurger(meatType(),1);
+
+        int choice=1;
+
+        while (choice>0 && choice<=6) {
+
+            System.out.println("Choose additives: \n1. Extra lettuce" +
+                    "\n2. Extra tomatoes\n3. Extra carrots" +
+                    "\n4. Extra sauce\n5. Extra eggs" +
+                    "\n6. Extra pickles \n7. I don't want more additives");
+            isInt=data.hasNextInt();
+
+            if (isInt) {
+                choice = data.nextInt();
+            } else {
+                System.out.println("Invalid choice.");
+                choice=0;
+            }
+            data.nextLine();
+            switch (choice) {
+                case 1:
+                    System.out.println("Lettuce added.");
+                    healthyBurger.addLettuceQuantity();
+                    break;
+                case 2:
+                    System.out.println("Tomatoes added.");
+                    healthyBurger.addTomatoQuantity();
+                    break;
+                case 3:
+                    System.out.println("Carrots added.");
+                    healthyBurger.addExtraSauceQuantity();
+                    break;
+                case 4:
+                    System.out.println("Sauce added.");
+                    healthyBurger.addExtraSauceQuantity();
+                    break;
+                case 5:
+                    System.out.println("Fried eggs added.");
+                    healthyBurger.addEggsQuantity();
+                    break;
+                case 6:
+                    System.out.println("Pickles added.");
+                    healthyBurger.addPicklesQuantity();
+                    break;
+                default:
+                    healthyBurger.printBurgerStats();
+                    break;
+
+            }
+
+        }
+
     }
 
     public void deluxeBurgerMenu() {
         System.out.println("You choose a Deluxe Burger!");
+        DeluxeBurger deluxeBurger=new DeluxeBurger(breadType(),meatType(),1);
+        deluxeBurger.printBurgerStats();
 
     }
 

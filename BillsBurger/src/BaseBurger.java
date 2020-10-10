@@ -16,7 +16,8 @@ public class BaseBurger {
     private double saucePrice=0.30;
 
     public BaseBurger(String breadType, String meatType,double basePrice) {
-
+        this.breadType=breadType;
+        this.meatType=meatType;
         if (breadType.equals("white")) {
 
             this.breadPrice=1.1;
@@ -66,7 +67,7 @@ public class BaseBurger {
         System.out.println("Additives:\n------------------------ \nExtra lettuce: "+lettuceQuantity+"\nExtra tomatoes: "+tomatoQuantity +
                 "\nExtra carrots: "+carrotQuantity+"\nExtra sauce: "+extraSauceQuantity+"\n\n");
         burgerPrice+=lettuceQuantity*lettucePrice + tomatoQuantity*tomatoPrice + carrotQuantity*carrotPrice + extraSauceQuantity*saucePrice;
-        System.out.println("Final price: "+burgerPrice);
+        System.out.println("Final price: "+ String.format("%.2f",burgerPrice));
     }
 
     public void addLettuceQuantity() {
