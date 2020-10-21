@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AllFactors/AllFactors.iml" filepath="$PROJECT_DIR$/AllFactors/AllFactors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AreaCalculator/AreaCalculator.iml" filepath="$PROJECT_DIR$/AreaCalculator/AreaCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ArrayListChallenge/ArrayListChallenge.iml" filepath="$PROJECT_DIR$/ArrayListChallenge/ArrayListChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Arrays/Arrays.iml" filepath="$PROJECT_DIR$/Arrays/Arrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ArraysChallenge/ArraysChallenge.iml" filepath="$PROJECT_DIR$/ArraysChallenge/ArraysChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Barking Dog(Coding Exercise 3)/Barking Dog(Coding Exercise 3).iml" filepath="$PROJECT_DIR$/Barking Dog(Coding Exercise 3)/Barking Dog(Coding Exercise 3).iml" />
+      <module fileurl="file://$PROJECT_DIR$/BillsBurger/BillsBurger.iml" filepath="$PROJECT_DIR$/BillsBurger/BillsBurger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ByteShortIntLong(23-26)/ByteShortIntLong(23-26).iml" filepath="$PROJECT_DIR$/ByteShortIntLong(23-26)/ByteShortIntLong(23-26).iml" />
+      <module fileurl="file://$PROJECT_DIR$/CarpetCostCalculator/CarpetCostCalculator.iml" filepath="$PROJECT_DIR$/CarpetCostCalculator/CarpetCostCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CharAndBoolean(30)/CharAndBoolean(30).iml" filepath="$PROJECT_DIR$/CharAndBoolean(30)/CharAndBoolean(30).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Classes/Classes.iml" filepath="$PROJECT_DIR$/Classes/Classes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ComplexOperations/ComplexOperations.iml" filepath="$PROJECT_DIR$/ComplexOperations/ComplexOperations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Composition/Composition.iml" filepath="$PROJECT_DIR$/Composition/Composition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConstructorChallenge/ConstructorChallenge.iml" filepath="$PROJECT_DIR$/ConstructorChallenge/ConstructorChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Constructors/Constructors.iml" filepath="$PROJECT_DIR$/Constructors/Constructors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cylinder/Cylinder.iml" filepath="$PROJECT_DIR$/Cylinder/Cylinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DayOfTheWeekChallenge/DayOfTheWeekChallenge.iml" filepath="$PROJECT_DIR$/DayOfTheWeekChallenge/DayOfTheWeekChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DecimalComparator/DecimalComparator.iml" filepath="$PROJECT_DIR$/DecimalComparator/DecimalComparator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DiagonalStar/DiagonalStar.iml" filepath="$PROJECT_DIR$/DiagonalStar/DiagonalStar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Encapsulation/Encapsulation.iml" filepath="$PROJECT_DIR$/Encapsulation/Encapsulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EncapsulationChallenge/EncapsulationChallenge.iml" filepath="$PROJECT_DIR$/EncapsulationChallenge/EncapsulationChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EqualSumChecker/EqualSumChecker.iml" filepath="$PROJECT_DIR$/EqualSumChecker/EqualSumChecker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EqualityPrinter/EqualityPrinter.iml" filepath="$PROJECT_DIR$/EqualityPrinter/EqualityPrinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EvenDigitSum/EvenDigitSum.iml" filepath="$PROJECT_DIR$/EvenDigitSum/EvenDigitSum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FirstAndLastDigitSum/FirstAndLastDigitSum.iml" filepath="$PROJECT_DIR$/FirstAndLastDigitSum/FirstAndLastDigitSum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FloatAndDouble(27-29)/FloatAndDouble(27-29).iml" filepath="$PROJECT_DIR$/FloatAndDouble(27-29)/FloatAndDouble(27-29).iml" />
+      <module fileurl="file://$PROJECT_DIR$/FlourPackProblem/FlourPackProblem.iml" filepath="$PROJECT_DIR$/FlourPackProblem/FlourPackProblem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GreatestCommonDivisor/GreatestCommonDivisor.iml" filepath="$PROJECT_DIR$/GreatestCommonDivisor/GreatestCommonDivisor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HelloWorld(19-22)/HelloWorld(19-22).iml" filepath="$PROJECT_DIR$/HelloWorld(19-22)/HelloWorld(19-22).iml" />
+      <module fileurl="file://$PROJECT_DIR$/IfKeywordAndCodeBlocks(45)/IfKeywordAndCodeBlocks(45).iml" filepath="$PROJECT_DIR$/IfKeywordAndCodeBlocks(45)/IfKeywordAndCodeBlocks(45).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Inheritance/Inheritance.iml" filepath="$PROJECT_DIR$/Inheritance/Inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InheritanceChallenge1/InheritanceChallenge1.iml" filepath="$PROJECT_DIR$/InheritanceChallenge1/InheritanceChallenge1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/InputCalculator/InputCalculator.iml" filepath="$PROJECT_DIR$/InputCalculator/InputCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KeyWordAndExpressions(46-53)/KeyWordAndExpressions(46-53).iml" filepath="$PROJECT_DIR$/KeyWordAndExpressions(46-53)/KeyWordAndExpressions(46-53).iml" />
+      <module fileurl="file://$PROJECT_DIR$/LargestPrime/LargestPrime.iml" filepath="$PROJECT_DIR$/LargestPrime/LargestPrime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LastDigitChecker/LastDigitChecker.iml" filepath="$PROJECT_DIR$/LastDigitChecker/LastDigitChecker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LeapYearCalculator(Coding Exercise 4)/LeapYearCalculator(Coding Exercise 4).iml" filepath="$PROJECT_DIR$/LeapYearCalculator(Coding Exercise 4)/LeapYearCalculator(Coding Exercise 4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lists/Lists.iml" filepath="$PROJECT_DIR$/Lists/Lists.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MinElementChallenge/MinElementChallenge.iml" filepath="$PROJECT_DIR$/MinElementChallenge/MinElementChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Onur/Onur.iml" filepath="$PROJECT_DIR$/Onur/Onur.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PaintJob/PaintJob.iml" filepath="$PROJECT_DIR$/PaintJob/PaintJob.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParsingValueFromAString/ParsingValueFromAString.iml" filepath="$PROJECT_DIR$/ParsingValueFromAString/ParsingValueFromAString.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PerfectNumber/PerfectNumber.iml" filepath="$PROJECT_DIR$/PerfectNumber/PerfectNumber.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Person/Person.iml" filepath="$PROJECT_DIR$/Person/Person.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PlayingCat/PlayingCat.iml" filepath="$PROJECT_DIR$/PlayingCat/PlayingCat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Point/Point.iml" filepath="$PROJECT_DIR$/Point/Point.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/Polymorphism/Polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PolymorphismChallenge/PolymorphismChallenge.iml" filepath="$PROJECT_DIR$/PolymorphismChallenge/PolymorphismChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PoolArea/PoolArea.iml" filepath="$PROJECT_DIR$/PoolArea/PoolArea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" filepath="$PROJECT_DIR$/ReadingUserInput/ReadingUserInput.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReadingUserInputChallenge/ReadingUserInputChallenge.iml" filepath="$PROJECT_DIR$/ReadingUserInputChallenge/ReadingUserInputChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReferenceTypes/ReferenceTypes.iml" filepath="$PROJECT_DIR$/ReferenceTypes/ReferenceTypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReverseArrayChallenge/ReverseArrayChallenge.iml" filepath="$PROJECT_DIR$/ReverseArrayChallenge/ReverseArrayChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Room/Room.iml" filepath="$PROJECT_DIR$/Room/Room.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SecondsAndMinutesChallenge/SecondsAndMinutesChallenge.iml" filepath="$PROJECT_DIR$/SecondsAndMinutesChallenge/SecondsAndMinutesChallenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SharedDigit/SharedDigit.iml" filepath="$PROJECT_DIR$/SharedDigit/SharedDigit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpeedConverter(Coding Exercise 1)/SpeedConverter(Coding Exercise 1).iml" filepath="$PROJECT_DIR$/SpeedConverter(Coding Exercise 1)/SpeedConverter(Coding Exercise 1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/StatementsWhitespaceAndIndenting(44)/StatementsWhitespaceAndIndenting(44).iml" filepath="$PROJECT_DIR$/StatementsWhitespaceAndIndenting(44)/StatementsWhitespaceAndIndenting(44).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strings(31)/Strings(31).iml" filepath="$PROJECT_DIR$/Strings(31)/Strings(31).iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sum3And5Challenge/Sum3And5Challenge.iml" filepath="$PROJECT_DIR$/Sum3And5Challenge/Sum3And5Challenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SumCalculator/SumCalculator.iml" filepath="$PROJECT_DIR$/SumCalculator/SumCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SumDigits/SumDigits.iml" filepath="$PROJECT_DIR$/SumDigits/SumDigits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SumOdd/SumOdd.iml" filepath="$PROJECT_DIR$/SumOdd/SumOdd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Switch/Switch.iml" filepath="$PROJECT_DIR$/Switch/Switch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeenNumberChecker/TeenNumberChecker.iml" filepath="$PROJECT_DIR$/TeenNumberChecker/TeenNumberChecker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WallArea/WallArea.iml" filepath="$PROJECT_DIR$/WallArea/WallArea.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WhileAndDoWhile/WhileAndDoWhile.iml" filepath="$PROJECT_DIR$/WhileAndDoWhile/WhileAndDoWhile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex1_2/ex1_2.iml" filepath="$PROJECT_DIR$/ex1_2/ex1_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ex1_2_3/ex1_2_3.iml" filepath="$PROJECT_DIR$/ex1_2_3/ex1_2_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/forLoop/forLoop.iml" filepath="$PROJECT_DIR$/forLoop/forLoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/problem1_1/problem1_1.iml" filepath="$PROJECT_DIR$/problem1_1/problem1_1.iml" />
+    </modules>
+  </component>
+</project>
