@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -24,27 +27,6 @@
       <change beforePath="$PROJECT_DIR$/src/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MobilePhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MobilePhone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Arrays/Arrays.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Arrays/Arrays.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArraysChallenge/ArraysChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ArraysChallenge/ArraysChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CarpetCostCalculator/CarpetCostCalculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../CarpetCostCalculator/CarpetCostCalculator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Classes/Classes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Classes/Classes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Composition/Composition.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Composition/Composition.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ConstructorChallenge/ConstructorChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ConstructorChallenge/ConstructorChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../DayOfTheWeekChallenge/DayOfTheWeekChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../DayOfTheWeekChallenge/DayOfTheWeekChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Inheritance/Inheritance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Inheritance/Inheritance.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lists/Lists.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lists/Lists.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MinElementChallenge/MinElementChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../MinElementChallenge/MinElementChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Onur/Onur.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Onur/Onur.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ParsingValueFromAString/ParsingValueFromAString.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ParsingValueFromAString/ParsingValueFromAString.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReadingUserInput/ReadingUserInput.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReadingUserInput/ReadingUserInput.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReadingUserInputChallenge/ReadingUserInputChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReadingUserInputChallenge/ReadingUserInputChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReferenceTypes/ReferenceTypes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReferenceTypes/ReferenceTypes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReverseArrayChallenge/ReverseArrayChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../ReverseArrayChallenge/ReverseArrayChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SecondsAndMinutesChallenge/SecondsAndMinutesChallenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../SecondsAndMinutesChallenge/SecondsAndMinutesChallenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Sum3And5Challenge/Sum3And5Challenge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Sum3And5Challenge/Sum3And5Challenge.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Switch/Switch.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Switch/Switch.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../WhileAndDoWhile/WhileAndDoWhile.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../WhileAndDoWhile/WhileAndDoWhile.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../forLoop/forLoop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../forLoop/forLoop.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,26 +95,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="590" y="179" key="#com.intellij.ide.util.MemberChooser" timestamp="1603874398394">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="645" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1603919147628">
+      <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="590" y="179" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1680.26.1680.1010@0.0.1536.824" timestamp="1603874398393" />
-    <state x="645" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603304885231" />
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1603305008830">
+    <state x="645" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603919147628" />
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom" timestamp="1603919717015">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603305008830" />
-    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1603305008830">
+    <state width="1637" height="272" key="GridCell.Tab.0.bottom/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603919717015" />
+    <state width="1637" height="272" key="GridCell.Tab.0.center" timestamp="1603919717014">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603305008830" />
-    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1603305008830">
+    <state width="1637" height="272" key="GridCell.Tab.0.center/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603919717014" />
+    <state width="1637" height="272" key="GridCell.Tab.0.left" timestamp="1603919717014">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603305008830" />
-    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1603305008830">
+    <state width="1637" height="272" key="GridCell.Tab.0.left/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603919717014" />
+    <state width="1637" height="272" key="GridCell.Tab.0.right" timestamp="1603919717014">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603305008830" />
+    <state width="1637" height="272" key="GridCell.Tab.0.right/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603919717014" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1603919631447">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1603919631447" />
   </component>
 </project>
