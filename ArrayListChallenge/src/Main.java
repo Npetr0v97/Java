@@ -5,8 +5,9 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
+        int choice;
+        boolean isInt;
 
-        // TODO: 28.10.2020 г. Create a the contact list + print a message to him
         System.out.println("Create your contacts list \n-----------------------\nEnter your name: ");
         String name = scanner.nextLine();
         System.out.println("Enter your phone number: ");
@@ -14,18 +15,88 @@ public class Main {
         System.out.println("Contacts list created. Hello " + name + " (" + myNumber +")");
         MobilePhone myPhone = new MobilePhone(myNumber, name);
 
-        int choice;
+        do {
+            printMenu();
+            isInt = scanner.hasNextInt();
+            if (isInt) {
 
-        // TODO: 28.10.2020 г. Generate Menu with the following options /add/update/removeContact/printList/Quit+Message
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                makeChoice(choice,myPhone);
+
+            } else {
+                choice = 0;
+                scanner.nextLine();
+                makeChoice(choice,myPhone);
+            }
+        } while (choice >= 1 && choice <=4);
+
+
+
+
     }
 
-    // TODO: 28.10.2020 г. Method: add contact
+    private static void printMenu() {
 
-    // TODO: 28.10.2020 г. Method: update contact
+        System.out.println("------ MENU ------");
+        System.out.println("1. Add new Contact");
+        System.out.println("2. Update an existing contact");
+        System.out.println("3. Remove an existing contact");
+        System.out.println("4. Print list of contacts");
+        System.out.println("5. Quit");
+        System.out.println("\nMake your choice: ");
+    }
 
-    // TODO: 28.10.2020 г. Method: remove contact
+    private static void makeChoice(int choice, MobilePhone myPhone) {
 
-    // TODO: 28.10.2020 г. Method: print list
+        switch (choice) {
 
-    // TODO: 28.10.2020 г. Method: Quit + message 
+            case 1:
+                mainAddContact(myPhone);
+                break;
+            case 2:
+                mainUpdateContact(myPhone);
+                break;
+            case 3:
+                mainRemoveContact(myPhone);
+                break;
+            case 4:
+                mainPrintList(myPhone);
+                break;
+            default:
+                quit();
+                break;
+        }
+    }
+
+    private static void mainAddContact(MobilePhone myPhone) {
+        System.out.print("Write down the name: ");
+        String name = scanner.nextLine();
+        System.out.print("Write down the phone number: ");
+        String phoneNumber = scanner.nextLine();
+        myPhone.addContact(name, phoneNumber);
+    }
+
+    private static void mainUpdateContact(MobilePhone myPhone) {
+        System.out.print("Write down the name you want to update: ");
+        String name = scanner.nextLine();
+        System.out.print("Write down the new phone number: ");
+        String newPhoneNumber = scanner.nextLine();
+        myPhone.modifyContact(name,newPhoneNumber);
+    }
+
+    private static void mainRemoveContact(MobilePhone myPhone) {
+        System.out.print("Write down the name of the contact you want to remove: ");
+        String name = scanner.nextLine();
+        myPhone.removeContact(name);
+    }
+
+    private static void mainPrintList(MobilePhone myPhone) {
+        myPhone.printContactList();
+    }
+
+    private static void quit() {
+
+        System.out.println("You have exited the app!");
+    }
 }

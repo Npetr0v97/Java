@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class MobilePhone {
 
     private String myNumber;
-    private ArrayList<Contact> contactsList = new ArrayList<Contact>();
+    private ArrayList<Contact> contactsList;
     private String myName;
 
     public MobilePhone(String myNumber, String myName) {
@@ -30,7 +30,7 @@ public class MobilePhone {
 
         for (int i=0; i < contactsList.size(); i++) {
 
-            if (contactsList.get(i).getName() == name) {
+            if (contactsList.get(i).getName().equals(name)) {
 
                 return true;
             }
@@ -43,7 +43,7 @@ public class MobilePhone {
 
         for (int i=0; i < contactsList.size(); i++) {
 
-            if (contactsList.get(i).getName() == name) {
+            if (contactsList.get(i).getName().equals(name)) {
 
                 return i;
             }
