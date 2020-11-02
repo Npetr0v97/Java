@@ -5,14 +5,15 @@ import java.util.Scanner;
 public class AlbumLibrary {
 
     private static Scanner scanner = new Scanner(System.in);
-    private ArrayList<Album> albums;
-
+    private static ArrayList<Album> albums = new ArrayList<Album>();
+/*
     public AlbumLibrary() {
 
         this.albums = new ArrayList<Album>();
     }
+*/
 
-    public boolean albumExists(String albumName) {
+    public static boolean albumExists(String albumName) {
 
         for (int i=0; i<albums.size(); i++) {
 
@@ -25,7 +26,7 @@ public class AlbumLibrary {
         return false;
     }
 
-    public void addAnAlbum(String albumName) {
+    public static void addAnAlbum(String albumName) {
 
         int comparison;
         boolean albumAdded=false;
@@ -57,7 +58,7 @@ public class AlbumLibrary {
 
     }
 
-    public void addASong(String albumName) {
+    public static void addASong(String albumName) {
 
         if (!albumExists(albumName)) {
 
@@ -82,7 +83,7 @@ public class AlbumLibrary {
         }
     }
 
-    public void printAlbumList() {
+    public static void printAlbumList() {
 
         System.out.println("Album list:");
 
@@ -92,7 +93,7 @@ public class AlbumLibrary {
         }
     }
 
-    public void printSongList(String albumName) {
+    public static void printSongList(String albumName) {
         if (albumExists(albumName)) {
 
             for (int i=0; i<albums.size(); i++) {
@@ -108,7 +109,7 @@ public class AlbumLibrary {
         }
     }
 
-    public ArrayList<Album> getAlbums() {
+    public static ArrayList<Album> getAlbums() {
         return albums;
     }
 }

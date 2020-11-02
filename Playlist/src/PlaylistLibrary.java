@@ -5,13 +5,17 @@ public class PlaylistLibrary {
 
 
     private static Scanner scanner = new Scanner(System.in);
-    private ArrayList<Playlist> playlists;
+    private static ArrayList<Playlist> playlists = new ArrayList<Playlist>();;
 
-    //todo initialize when playlist menu entered
+/*    //todo initialize when playlist menu entered
     public PlaylistLibrary() {
 
-        this.playlists = new ArrayList<Playlist>();
+        this.playlists =
         System.out.println("Playlist Library initialized");
+    }*/
+
+    public static ArrayList<Playlist> getPlaylists() {
+        return playlists;
     }
 
     //todo check if playlist exists

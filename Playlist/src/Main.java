@@ -29,8 +29,8 @@ public class Main {
         boolean quit = false;
         boolean isInt;
         int choice;
-        AlbumLibrary albumLibrary = new AlbumLibrary();
-        System.out.println("Album library initialized");
+
+
         printMenu();
 
         while (!quit) {
@@ -48,18 +48,18 @@ public class Main {
 
                 case 1:
                     System.out.print("Write the name of the album: ");
-                    albumLibrary.addAnAlbum(scanner.nextLine());
+                    AlbumLibrary.addAnAlbum(scanner.nextLine());
                     break;
                 case 2:
                     System.out.print("Write the name of the album where you want to add a song: ");
-                    albumLibrary.addASong(scanner.nextLine());
+                    AlbumLibrary.addASong(scanner.nextLine());
                     break;
                 case 3:
-                    albumLibrary.printAlbumList();
+                    AlbumLibrary.printAlbumList();
                     break;
                 case 4:
                     System.out.print("Write the name of the album which you want the songs for: ");
-                    albumLibrary.printSongList(scanner.nextLine());
+                    AlbumLibrary.printSongList(scanner.nextLine());
                     break;
                 case 5:
                     printMenu();
@@ -99,15 +99,7 @@ public class Main {
         System.out.println("3. Play a playlist");
         System.out.println("4. Quit");
 
-        isInt = scanner.hasNextInt();
-        if (isInt) {
-
-            choice = scanner.nextInt();
-        }
-        while (!quit) {
-
-
-        }
+        // TODO: 2.11.2020 г. continue
     }
 
     private static void printPlaylistMenu(AlbumLibrary albumLibrary) {
