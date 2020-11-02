@@ -15,6 +15,7 @@ public class Song {
 
     public String getSongDuration() {
         return songDuration;
+
     }
 }
 

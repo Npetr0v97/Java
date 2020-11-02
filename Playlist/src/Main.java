@@ -18,6 +18,8 @@ public class Main {
     // As an optional extra, provide an option to remove the current song from the playlist
     // (hint: listiterator.remove()
 
+
+
     private static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
@@ -40,7 +42,7 @@ public class Main {
                 scanner.nextLine();
             } else {
                 System.out.println("Invalid choice");
-                choice=6;
+                choice=7;
             }
             switch (choice) {
 
@@ -84,15 +86,40 @@ public class Main {
         System.out.println("6. Go to playlist menu");
         System.out.println("7. Quit");
         System.out.print("Make a choice: ");
+
     }
 
     private static void goToPlaylistMenu() {
+        boolean quit = false;
+        boolean isInt;
+        int choice;
 
-        printPlaylistMenu();
+        System.out.println("1. Add a playlist");
+        System.out.println("2. Add a song to a playlist");
+        System.out.println("3. Play a playlist");
+        System.out.println("4. Quit");
+
+        isInt = scanner.hasNextInt();
+        if (isInt) {
+
+            choice = scanner.nextInt();
+        }
+        while (!quit) {
+
+
+        }
     }
 
-    private static void printPlaylistMenu() {
+    private static void printPlaylistMenu(AlbumLibrary albumLibrary) {
 
+        int choice;
+        boolean isInt;
+        albumLibrary.printAlbumList();
+        System.out.println("Choose an album where you want the song from: ");
+        isInt = scanner.hasNextInt();
+        if (isInt) {
+            choice = scanner.nextInt();
 
+        }
     }
 }
