@@ -70,36 +70,22 @@ public class Main {
                     goToPlaylistMenu();
 
                     while (!quitPlaylist) {
-                        System.out.println("Choose an option: ");
                         isInt = scanner.hasNextInt();
                         if (isInt) {
 
                             choicePlaylist = scanner.nextInt();
                             scanner.nextLine();
+
+                            if (choicePlaylist < 1 || choicePlaylist > 6) {
+                                choice = -1;
+                            }
                         } else {
 
                             System.out.println("Invalid choice.");
                             choicePlaylist = -1;
                         }
 
-                        switch (choicePlaylist) {
-
-                            case 1:
-                                //todo add a playlist
-                            case 2:
-                                //todo add a song to playlist
-                            case 3:
-                                //todo play a playlist
-                            case 4:
-                                //todo print playlist
-                            case 5:
-                                goToPlaylistMenu();
-                                break;
-                            default:
-                                System.out.println("Exiting playlist menu.");
-                                quitPlaylist = true;
-                                break;
-                        }
+                        quitPlaylist = playlistChoice(choicePlaylist);
 
                     }
                     break;
@@ -112,7 +98,40 @@ public class Main {
 
     }
 
+    public static boolean playlistChoice(int choice) {
+
+        switch (choice) {
+
+            case 1:
+                PlaylistLibrary.addPlaylist();
+                return false;
+
+            case 2:
+                PlaylistLibrary.addSongToPlaylist();
+                return false;
+
+            case 3:
+                System.out.println("In progress");
+                return false;
+
+            case 4:
+                PlaylistLibrary.printPlaylists();
+                return false;
+
+            case 5:
+                goToPlaylistMenu();
+                return false;
+
+            default:
+                System.out.println("Exiting playlist menu.");
+                return true;
+
+
+        }
+    }
+
     private static void printMenu() {
+
 
         System.out.println("1. Add an album");
         System.out.println("2. Add a song to an existing album");
@@ -122,6 +141,8 @@ public class Main {
         System.out.println("6. Go to playlist menu");
         System.out.println("7. Quit");
         System.out.print("Make a choice: ");
+
+
 
     }
 
@@ -134,17 +155,19 @@ public class Main {
         System.out.println("2. Add a song to a playlist");
         System.out.println("3. Play a playlist");
         System.out.println("4. Print playlist");
-        System.out.println("5. Print playlist menu");
-        System.out.println("6. Quit");
+        System.out.println("5. Print songs from playlist");
+        System.out.println("6. Print playlist menu");
+        System.out.println("7. Quit");
+        System.out.print("Make a choice: ");
 
         // TODO: 2.11.2020 г. continue
     }
 
-    private static void printPlaylistMenu(AlbumLibrary albumLibrary) {
+    private static void printPlaylistMenu() {
 
         int choice;
         boolean isInt;
-        albumLibrary.printAlbumList();
+        AlbumLibrary.printAlbumList();
         System.out.println("Choose an album where you want the song from: ");
         isInt = scanner.hasNextInt();
         if (isInt) {

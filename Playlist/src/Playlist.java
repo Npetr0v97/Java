@@ -18,7 +18,7 @@ public class Playlist {
 
         while (!quit) {
 
-
+            quit = addSongToAPlaylist();
         }
         System.out.println("Exiting song adding menu");
     }
@@ -28,8 +28,9 @@ public class Playlist {
         ListIterator<Song> it = songs.listIterator();
         while (it.hasNext()) {
 
-            if (it.next().getSongName() == songName) {
+            if (it.next().getSongName().equals(songName)) {
 
+                System.out.println("Song already exists");
                 return true;
             }
         }
@@ -40,13 +41,12 @@ public class Playlist {
     public boolean addSongToAPlaylist() {
         boolean isInt;
         int choice;
-        int counter = 0;
-       // boolean quit = false;
-        String songToAdd;
+
+
 
 
         AlbumLibrary.printAlbumList();
-        System.out.println((AlbumLibrary.getAlbums().size()) + ". Exit");
+        System.out.println((AlbumLibrary.getAlbums().size()+1) + ". Exit");
 
         System.out.println("Choose an album: ");
 
@@ -56,16 +56,23 @@ public class Playlist {
             choice = scanner.nextInt();
         } else {
 
-            choice = -1;
+
             System.out.println("Invalid choice");
             return false;
         }
 
         if (choice <= AlbumLibrary.getAlbums().size() && choice >= 1) {
 
-            findSong(AlbumLibrary.getAlbums().get(choice-1));
+            if (this.songAlreadyAdded(findSong(AlbumLibrary.getAlbums().get(choice-1)).getSongName())) {
 
-            return true;
+                System.out.println("Song already in playlist");
+            } else {
+
+                this.songs.add(findSong(AlbumLibrary.getAlbums().get(choice-1)));
+            }
+
+
+            return false;
         } else if (choice == AlbumLibrary.getAlbums().size()+1) {
 
             System.out.println("Exiting album");
@@ -93,14 +100,15 @@ public class Playlist {
             scanner.nextLine();
         } else {
 
-            choice = -1;
+
             System.out.println("Invalid choice");
             return null;
         }
 
         if (choice <= album.getSongList().size()) {
+            System.out.println(album.getSongList().get(choice-1).getSongName() + " added");
+            return album.getSongList().get(choice-1);
 
-            return album.getSongList().get(choice);
         } else {
 
             System.out.println("Invalid choice");
@@ -108,6 +116,23 @@ public class Playlist {
         }
     }
 
+    public void printSongsFromPlaylist() {
+        int num = 1;
+        ListIterator<Song> it = songs.listIterator();
+        while (it.hasNext()) {
 
+            System.out.println(num + ". " + it.next().getSongName() + " (" + it.next().getSongDuration() + ")");
+        }
+    }
+
+    public String getPlaylistName() {
+
+
+        return playlistName;
+    }
+
+    public LinkedList<Song> getSongs() {
+        return songs;
+    }
 
 }
