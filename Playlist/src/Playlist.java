@@ -125,6 +125,56 @@ public class Playlist {
         }
     }
 
+    public void playPlaylist() {
+        int choice;
+        boolean isInt;
+        boolean quit = false;
+        System.out.println("You choose playlist " + this.getPlaylistName());
+        while (!quit) {
+            printPlayPlaylistMenu();
+            isInt=scanner.hasNextInt();
+            if (isInt) {
+
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice < 1 || choice > 4) {
+
+                    System.out.println("Invalid choice.");
+                    choice = -1;
+                }
+            } else {
+
+                System.out.println("Invalid choice.");
+                choice = -1;
+            }
+
+            switch (choice) {
+                case 1:
+                    //todo skip song
+                case 2:
+                    //todo previous song
+                case 3:
+                    //todo replay song
+                default:
+                    System.out.println("Exiting playlist");
+                    quit = true;
+                    break;
+            }
+        }
+
+
+
+    }
+
+    public void printPlayPlaylistMenu() {
+
+        System.out.println("1. Skip");
+        System.out.println("2. Previous");
+        System.out.println("3. Replay");
+        System.out.println("4. Exit playlist");
+        System.out.print("Choose: ");
+    }
+
     public String getPlaylistName() {
 
 
