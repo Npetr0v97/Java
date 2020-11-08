@@ -42,9 +42,6 @@ public class Playlist {
         boolean isInt;
         int choice;
 
-
-
-
         AlbumLibrary.printAlbumList();
         System.out.println((AlbumLibrary.getAlbums().size()+1) + ". Exit");
 
@@ -54,6 +51,7 @@ public class Playlist {
         if (isInt) {
 
             choice = scanner.nextInt();
+            scanner.nextLine();
         } else {
 
 
@@ -129,38 +127,87 @@ public class Playlist {
         int choice;
         boolean isInt;
         boolean quit = false;
+        boolean goingForward = true;
+        Song currentSong;
+        ListIterator<Song> it = songs.listIterator();
         System.out.println("You choose playlist " + this.getPlaylistName());
-        while (!quit) {
-            printPlayPlaylistMenu();
-            isInt=scanner.hasNextInt();
-            if (isInt) {
+        if (songs.isEmpty()) {
+            System.out.println("Empty playlist");
+        } else {
+            currentSong = it.next();
+            System.out.println("Now playing " + currentSong.getSongName() + " (" + currentSong.getSongDuration() + ")");
+            while (!quit) {
+                printPlayPlaylistMenu();
+                isInt=scanner.hasNextInt();
+                if (isInt) {
 
-                choice = scanner.nextInt();
-                scanner.nextLine();
-                if (choice < 1 || choice > 4) {
+                    choice = scanner.nextInt();
+                    scanner.nextLine();
+                    if (choice < 1 || choice > 4) {
+
+                        System.out.println("Invalid choice.");
+                        choice = -1;
+                    }
+                } else {
 
                     System.out.println("Invalid choice.");
                     choice = -1;
                 }
-            } else {
 
-                System.out.println("Invalid choice.");
-                choice = -1;
-            }
+                switch (choice) {
+                    case 1:
+                        if (goingForward) {
+                            if (it.hasNext()) {
 
-            switch (choice) {
-                case 1:
-                    //todo skip song
-                case 2:
-                    //todo previous song
-                case 3:
-                    //todo replay song
-                default:
-                    System.out.println("Exiting playlist");
-                    quit = true;
-                    break;
+                                currentSong = it.next();
+                                System.out.println("Now playing " + currentSong.getSongName() + " (" + currentSong.getSongDuration() + ")");
+                            } else {
+                                System.out.println("End of playlist reached");
+                            }
+                        } else {
+                            goingForward = true;
+                            it.next();
+                            if (it.hasNext()) {
+
+                                currentSong = it.next();
+                                System.out.println("Now playing " + currentSong.getSongName() + " (" + currentSong.getSongDuration() + ")");
+                            } else {
+                                System.out.println("End of playlist reached");
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (!goingForward) {
+                            if (it.hasPrevious()) {
+
+                                currentSong = it.previous();
+                                System.out.println("Now playing " + currentSong.getSongName() + " (" + currentSong.getSongDuration() + ")");
+                            } else {
+                                System.out.println("Start of playlist reached");
+                            }
+                        } else {
+                            goingForward = false;
+                            it.previous();
+                            if (it.hasPrevious()) {
+
+                                currentSong = it.previous();
+                                System.out.println("Now playing " + currentSong.getSongName() + " (" + currentSong.getSongDuration() + ")");
+                            } else {
+                                System.out.println("Start of playlist reached");
+                            }
+                        }
+                        break;
+                    case 3:
+                        System.out.println("Replaying " + currentSong.getSongName() + " (" + currentSong.getSongDuration() + ")");
+                        break;
+                    default:
+                        System.out.println("Exiting playlist");
+                        quit = true;
+                        break;
+                }
             }
         }
+
 
 
 

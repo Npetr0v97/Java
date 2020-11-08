@@ -111,7 +111,7 @@ public class Main {
                 return false;
 
             case 3:
-                System.out.println("In progress");
+                PlaylistLibrary.choosePlaylist();
                 return false;
 
             case 4:
@@ -119,9 +119,11 @@ public class Main {
                 return false;
 
             case 5:
+                PlaylistLibrary.printPlaylistSongs();
+                return false;
+            case 6:
                 goToPlaylistMenu();
                 return false;
-
             default:
                 System.out.println("Exiting playlist menu.");
                 return true;
@@ -147,9 +149,7 @@ public class Main {
     }
 
     private static void goToPlaylistMenu() {
-        boolean quit = false;
-        boolean isInt;
-        int choice;
+
 
         System.out.println("1. Add a playlist");
         System.out.println("2. Add a song to a playlist");
@@ -160,7 +160,7 @@ public class Main {
         System.out.println("7. Quit");
         System.out.print("Make a choice: ");
 
-        // TODO: 2.11.2020 г. continue
+
     }
 
     private static void printPlaylistMenu() {

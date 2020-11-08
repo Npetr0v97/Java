@@ -7,7 +7,7 @@ public class PlaylistLibrary {
     private static Scanner scanner = new Scanner(System.in);
     private static ArrayList<Playlist> playlists = new ArrayList<Playlist>();
 
-/*    //todo initialize when playlist menu entered
+/*
     public PlaylistLibrary() {
 
         this.playlists =
@@ -92,7 +92,25 @@ public class PlaylistLibrary {
     }
 
 
-    //todo play playlist -> next song, previous song, replay current song, quit
+    public static void choosePlaylist() {
+        String playlistName;
+        System.out.print("Write down which playlist you want to play:");
+        playlistName = scanner.nextLine();
+        if (playlistExists(playlistName)){
+
+            for (int i=0; i < playlists.size(); i++) {
+
+                if (playlists.get(i).getPlaylistName().equals(playlistName)) {
+
+                    playlists.get(i).playPlaylist();
+                    break;
+                }
+            }
+        } else {
+
+            System.out.println("Playlist " + playlistName + " doesn't exist.");
+        }
+    }
 
 
 }
