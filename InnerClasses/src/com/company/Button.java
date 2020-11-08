@@ -3,7 +3,7 @@ package com.company;
 public class Button  {
 
     private String title;
-    private OnClickListener onClickListener;
+    private IOnClickListener onClickListener;
 
     public Button(String title) {
         this.title = title;
@@ -13,7 +13,7 @@ public class Button  {
         return title;
     }
 
-    public void setOnClickListener(OnClickListener onClickListener) {
+    public void setOnClickListener(IOnClickListener onClickListener) {
 
         this.onClickListener = onClickListener;
     }
@@ -23,7 +23,7 @@ public class Button  {
         this.onClickListener.onClick(this.title);
     }
 
-    public interface OnClickListener{
+    public interface IOnClickListener{
         public void onClick(String title);
     }
 }

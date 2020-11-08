@@ -37,7 +37,8 @@ public class Main {
             }
         }*/
 
-        btnPrint.setOnClickListener(new Button.OnClickListener() {
+        btnPrint.setOnClickListener(new Button.IOnClickListener() {
+            //по този начин не се нуждае от конструктор
             @Override
             public void onClick(String title) {
                 System.out.println(title + " was clicked");
