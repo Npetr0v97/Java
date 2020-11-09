@@ -61,7 +61,16 @@ public class Album {
         return name;
     }
 
-    //todo print list of songs through album class
+    public String getArtist() {
+        return artist;
+    }
+
+    public void printSongsInAlbum() {
+
+        System.out.println("Songs from " + name + " by " + artist);
+        System.out.println("--------------------------------");
+        songlist.printSonglist();
+    }
 
     public class SongList{
         ArrayList<Song> songs;
@@ -112,7 +121,13 @@ public class Album {
             }
         }
 
-        //todo print list of songs
+        public void printSonglist() {
+
+            for (int i=0; i<songs.size(); i++) {
+
+                System.out.println((i+1) + ". " + songs.get(i).toString());
+            }
+        }
 
     }
 }

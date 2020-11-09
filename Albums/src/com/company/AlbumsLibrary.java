@@ -37,11 +37,52 @@ public class AlbumsLibrary {
         String name;
         String artist;
 
-        //todo Add Album
+        System.out.print("Write down the name of the new album: ");
+        name = scanner.nextLine();
+
+        if (findAlbum(name) == -1) {
+
+            System.out.print("Write down the name of the artist: ");
+            artist = scanner.nextLine();
+
+            albums.add(new Album(name, artist));
+            System.out.println("Album added.");
+        } else {
+
+            System.out.println("Album with the name " + name + " already exists.");
+        }
     }
 
-    //todo remove an album
+    public static void removeAnAlbum() {
+        String name;
 
-    //todo print list of albums
+        System.out.print("Write down the name of the album you want to remove: ");
+        name = scanner.nextLine();
+
+        if (findAlbum(name) == -1) {
+
+            System.out.println("No album with the name " + name + " was found.");
+        } else {
+
+            albums.remove(findAlbum(name));
+            System.out.println(name + " removed from the albums.");
+        }
+    }
+
+    public void printAlbumList() {
+        int counter = 1;
+        Album currentAlbum;
+
+        ListIterator<Album> it = albums.listIterator();
+
+        System.out.println("List of albums");
+        System.out.println("--------------------------------");
+
+        while (it.hasNext()) {
+            currentAlbum = it.next();
+            System.out.println(counter + ". " + currentAlbum.getName() + " by " + currentAlbum.getArtist());
+            counter++;
+        }
+    }
 
 }

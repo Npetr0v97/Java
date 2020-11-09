@@ -18,5 +18,10 @@ public class Song {
         return duration;
     }
 
-    //todo toString Override
+
+    @Override
+    public String toString() {
+
+       return title + " (" + duration + ")";
+    }
 }

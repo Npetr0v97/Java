@@ -78,6 +78,7 @@ public class Main {
 
                             if (choicePlaylist < 1 || choicePlaylist > 6) {
                                 choice = -1;
+                                
                             }
                         } else {
 
