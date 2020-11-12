@@ -21,6 +21,7 @@ public class AlbumsLibrary {
             if (it.next().getName().equals(albumName)) {
 
                 foundMatch = true;
+                break;
             }
 
             position++;
@@ -69,7 +70,43 @@ public class AlbumsLibrary {
         }
     }
 
-    public void printAlbumList() {
+    public static void addANewSong() {
+        String albumName;
+        System.out.print("Write the name of the album where you want to add a song to: ");
+        albumName = scanner.nextLine();
+        if (findAlbum(albumName) < 0) {
+
+            System.out.println("Album " + albumName + " doesn't exist.");
+        } else {
+            albums.get(findAlbum(albumName)).addToSonglist();
+        }
+    }
+
+    public static void removeASong() {
+        String albumName;
+        System.out.print("Write the name of the album where you want to remove a song from: ");
+        albumName = scanner.nextLine();
+        if (findAlbum(albumName) < 0) {
+
+            System.out.println("Album " + albumName + " doesn't exist.");
+        } else {
+            albums.get(findAlbum(albumName)).removeFromSonglist();
+        }
+    }
+
+    public static void printAlbumSonglist() {
+        String albumName;
+        System.out.print("Write the name of the album where you want to see the songlist: ");
+        albumName = scanner.nextLine();
+        if (findAlbum(albumName) < 0) {
+
+            System.out.println("Album " + albumName + " doesn't exist.");
+        } else {
+            albums.get(findAlbum(albumName)).printSongsInAlbum();
+        }
+    }
+
+    public static void printAlbumList() {
         int counter = 1;
         Album currentAlbum;
 

@@ -35,20 +35,29 @@ public class Main {
             switch (choice) {
 
                 case 1:
+                    AlbumsLibrary.addAnAlbum();
                     break;
                 case 2:
+                    AlbumsLibrary.removeAnAlbum();
                     break;
                 case 3:
+                    AlbumsLibrary.printAlbumList();
                     break;
                 case 4:
+                    AlbumsLibrary.addANewSong();
                     break;
                 case 5:
+                    AlbumsLibrary.removeASong();
                     break;
                 case 6:
+                    AlbumsLibrary.printAlbumSonglist();
                     break;
                 case 7:
+                    printMenu();
                     break;
                 default:
+                    System.out.println("Exiting program");
+                    quit=true;
                     break;
             }
 
