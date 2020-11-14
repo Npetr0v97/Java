@@ -21,6 +21,5 @@ public abstract class Bird extends Animal {
         System.out.println("The bird is breathing");
     }
 
-    public abstract void fly();
 
 }
