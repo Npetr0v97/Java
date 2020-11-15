@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     // For this challenge, create an abstract class to define items that can be stored in a list.
@@ -58,9 +60,74 @@ public class Main {
        // for (String s : data) {
         // create new item with value set to the string s
 
+    private static Scanner scanner = new Scanner(System.in);
+    private static boolean isInt;
     public static void main(String[] args) {
 
+        System.out.print("Library name: ");
+        Library library = new Library(scanner.nextLine());
+        boolean quit = false;
+        int choice;
+        String name;
+        printMenu();
+        while (!quit) {
 
-        // TODO: 14.11.2020 г. menu with all the options from Library including instantiation 
+            System.out.print("Make a choice: ");
+            isInt = scanner.hasNextInt();
+            if (isInt) {
+
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice < 1 || choice > 6) {
+
+                    System.out.println("Invalid choice");
+                }
+            } else {
+
+                System.out.println("Invalid choice");
+                choice = -1;
+            }
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Write the name of the book you want to add: ");
+                    name = scanner.nextLine();
+                    library.addBook(name);
+                    break;
+                case 2:
+                    System.out.print("Write the name of the book you want to remove: ");
+                    name = scanner.nextLine();
+                    library.removeBook(name);
+                    break;
+                case 3:
+                    library.printBookList();
+                    break;
+                case 4:
+                    library.presentBooks();
+                    break;
+                case 5:
+                    printMenu();
+                    break;
+                default:
+                    System.out.println("Exiting program");
+                    quit = true;
+                    break;
+            }
+        }
+
+
+        // TODO: 14.11.2020 г. menu with all the options from Library including instantiation
+    }
+
+    public static void printMenu() {
+        System.out.println("MENU============");
+        System.out.println("1. Add book");
+        System.out.println("2. Remove book");
+        System.out.println("3. Print book list");
+        System.out.println("4. Present book list");
+        System.out.println("5. Print menu");
+        System.out.println("6. Quit");
+
     }
 }
