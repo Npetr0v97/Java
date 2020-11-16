@@ -8,6 +8,12 @@ public class Main {
     private static String temp;
 
     public static void main(String[] args) {
+
+
+/*        String data = "ABC DEF GHI JKL MNO PQRST UVW XYZ";
+        String[] dataArray = data.split(" ");
+        System.out.println(Arrays.toString(dataArray));*/
+
         boolean quit = false;
         int choice;
         System.out.print("Write the name of the book collection: ");
@@ -50,6 +56,10 @@ public class Main {
                     tree.goThroughTree();
                     break;
                 case 4:
+                    System.out.print("Write the name of the book you want to replace: ");
+                    temp = scanner.nextLine();
+                    tree.replaceBook(temp);
+                case 5:
                     printMenu();
                     break;
                 default:
@@ -67,7 +77,8 @@ public class Main {
         System.out.println("1. Add book to collection");
         System.out.println("2. Remove a book from collection");
         System.out.println("3. Show books in the collection");
-        System.out.println("4. Print menu");
-        System.out.println("5. Quit");
+        System.out.println("4. Change book title");
+        System.out.println("5. Print menu");
+        System.out.println("6. Quit");
     }
 }

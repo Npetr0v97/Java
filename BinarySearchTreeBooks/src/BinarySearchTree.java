@@ -48,20 +48,21 @@ public class BinarySearchTree {
 
     private boolean searchTree(Node root, String bookName) {
 
-        boolean exists = false;
+
         if (root!=null) {
 
             searchTree(root.left, bookName);
 
             if (root.book.getName().equals(bookName)) {
 
-                exists = true;
+
+                return  true;
             }
 
             searchTree(root.right, bookName);
         }
 
-        return exists;
+        return false;
 
     }
 
@@ -88,6 +89,29 @@ public class BinarySearchTree {
         }
 
     }
+
+    private String findAuthor(String bookName) {
+
+        return searchAuthor(root, bookName);
+    }
+
+    private String searchAuthor(Node root, String bookName) {
+
+        if (root!=null) {
+
+            searchAuthor(root.left, bookName);
+
+                if (root.book.getAuthor().equals(bookName)) {
+
+                    return root.book.getAuthor();
+                }
+
+            searchAuthor(root.right, bookName);
+        }
+        return "";
+    }
+
+
 
     public void deleteBook(String bookName) {
         root = deleteRec(root, bookName);
@@ -138,6 +162,32 @@ public class BinarySearchTree {
         return minv;
     }
 
+    public void replaceBook(String bookName) {
+
+        String newBookName;
+        String author;
+        if (itemExists(bookName)) {
+            System.out.print("Write the name of the new book: ");
+            newBookName = scanner.nextLine();
+            author = findAuthor(bookName);
+            if (!itemExists(newBookName)){
+
+                root = deleteRec(root, author);
+            } else {
+
+                System.out.println(newBookName + " + already exists.");
+            }
+
+        } else {
+
+            System.out.println("Book with the name " + bookName + " doesn't exist");
+        }
+
+    }
+
+    // TODO: 16.11.2020 г. change author name 
+
+
     private class Node {
 
         Node left, right;
@@ -154,6 +204,5 @@ public class BinarySearchTree {
 
     }
 
-    // TODO: 15.11.2020 г. create a method which modifies the the book name and author 
 
 }
