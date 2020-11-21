@@ -12,30 +12,36 @@ public class BinarySearchTree {
         this.root = null;
     }
 
-    public void insertItem(String bookName) {
 
-        root = insertIntoTree(root, bookName);
+    public void insertItem(String bookName, String author) {
+
+        root = insertIntoTree(root, bookName, author);
 
     }
 
-    private Node insertIntoTree(Node root, String bookName) {
+    private Node insertIntoTree(Node root, String bookName, String author) {
 
         if (root == null) {
+            if (!author.equals("")) {
 
-            root = new Node(bookName);
+                root = new Node(bookName, author);
+            } else {
+                root = new Node(bookName);
+            }
+
             return root;
-        } else if (itemExists(bookName)){
+        } /*else if (itemExists(bookName)){
             System.out.println(bookName + " already exists in the collection.");
 
-        } else {
+        } */else {
 
 
-            if (root.book.getName().compareTo(bookName) > 0) {
+            if (root.book.getName().toLowerCase().compareTo(bookName.toLowerCase()) > 0) {
 
-                root.left = insertIntoTree(root.left, bookName);
+                root.left = insertIntoTree(root.left, bookName, author);
             } else {
 
-                root.right = insertIntoTree(root.right, bookName);
+                root.right = insertIntoTree(root.right, bookName, author);
             }
         }
         return root;
@@ -48,21 +54,24 @@ public class BinarySearchTree {
 
     private boolean searchTree(Node root, String bookName) {
 
+        boolean exists=false;
 
         if (root!=null) {
 
-            searchTree(root.left, bookName);
-
             if (root.book.getName().equals(bookName)) {
 
-
-                return  true;
+                exists = true;
+                return  exists;
             }
 
-            searchTree(root.right, bookName);
+            exists = searchTree(root.left, bookName);
+
+
+
+            exists = searchTree(root.right, bookName);
         }
 
-        return false;
+        return exists;
 
     }
 
@@ -101,7 +110,7 @@ public class BinarySearchTree {
 
             searchAuthor(root.left, bookName);
 
-                if (root.book.getAuthor().equals(bookName)) {
+                if (root.book.getAuthor().toLowerCase().equals(bookName.toLowerCase())) {
 
                     return root.book.getAuthor();
                 }
@@ -126,9 +135,9 @@ public class BinarySearchTree {
             return root;
 
         /* Otherwise, recur down the tree */
-        if (root.book.getName().compareTo(bookName) > 0)
+        if (root.book.getName().toLowerCase().compareTo(bookName.toLowerCase()) > 0)
             root.left = deleteRec(root.left, bookName);
-        else if (root.book.getName().compareTo(bookName) < 0)
+        else if (root.book.getName().toLowerCase().compareTo(bookName.toLowerCase()) < 0)
             root.right = deleteRec(root.right, bookName);
 
             // if key is same as root's
@@ -172,7 +181,9 @@ public class BinarySearchTree {
             author = findAuthor(bookName);
             if (!itemExists(newBookName)){
 
-                root = deleteRec(root, author);
+                root = deleteRec(root, bookName);
+                insertItem(newBookName, author);
+
             } else {
 
                 System.out.println(newBookName + " + already exists.");
@@ -185,7 +196,36 @@ public class BinarySearchTree {
 
     }
 
-    // TODO: 16.11.2020 г. change author name
+    public void changeAuthorName(String bookName) {
+
+        if (this.itemExists(bookName)) {
+
+            System.out.print("New author name: ");
+            String authorName=scanner.nextLine();
+
+            traverseChangeAuthor(root, authorName, bookName);
+        } else {
+
+            System.out.println(bookName + " not found.");
+        }
+    }
+
+
+
+    private void traverseChangeAuthor(Node root, String authorName, String bookName) {
+        if (root!=null) {
+
+            traverseChangeAuthor(root.left, authorName, bookName);
+
+            if (root.book.getName().toLowerCase().equals(bookName.toLowerCase())) {
+
+                root.book.setAuthor(authorName);
+            }
+
+            traverseChangeAuthor(root.right, authorName, bookName);
+        }
+
+    }
 
 
     private class Node {
@@ -197,6 +237,14 @@ public class BinarySearchTree {
             System.out.print("Write the name of the author: ");
             String bookAuthor = scanner.nextLine();
             this.book = new Book(bookName,bookAuthor);
+            this.left = null;
+            this.right = null;
+
+        }
+
+        public Node (String bookName, String author) {
+
+            this.book = new Book(bookName,author);
             this.left = null;
             this.right = null;
 
