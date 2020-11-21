@@ -64,6 +64,8 @@ public class BinarySearchTree {
                 return  exists;
             }
 
+
+
             exists = searchTree(root.left, bookName);
 
 
@@ -72,7 +74,7 @@ public class BinarySearchTree {
         }
 
         return exists;
-
+// https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
     }
 
     public String getName() {
