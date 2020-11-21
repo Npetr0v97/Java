@@ -18,13 +18,13 @@ public class Main {
         int choice;
         System.out.print("Write the name of the book collection: ");
         BinarySearchTree tree = new BinarySearchTree(scanner.nextLine());
-        String data = "50 30 20 40 70 60 80";
+/*        String data = "50 30 20 40 70 60 80";
         String[] arrayData = data.split(" ");
 
         for (int i=0; i < arrayData.length; i++) {
 
             tree.insertItem(arrayData[i], "test");
-        }
+        }*/
         printMenu();
         while (!quit) {
 

@@ -30,10 +30,10 @@ public class BinarySearchTree {
             }
 
             return root;
-        } /*else if (itemExists(bookName)){
+        } else if (itemExists(bookName)){
             System.out.println(bookName + " already exists in the collection.");
 
-        } */else {
+        } else {
 
 
             if (root.book.getName().toLowerCase().compareTo(bookName.toLowerCase()) > 0) {
@@ -54,26 +54,41 @@ public class BinarySearchTree {
 
     private boolean searchTree(Node root, String bookName) {
 
-        boolean exists=false;
 
         if (root!=null) {
 
-            if (root.book.getName().equals(bookName)) {
+            if (root.book.getName().toLowerCase().equals(bookName.toLowerCase())) {
 
-                exists = true;
-                return  exists;
+                return true;
+            } else if (root.left!=null && root.left.book.getName().toLowerCase().equals(bookName.toLowerCase())) {
+
+                return true;
+            } else if (root.right!=null && root.right.book.getName().toLowerCase().equals(bookName.toLowerCase())){
+                return true;
+            } else {
+
+                boolean existsLeft, existsRight;
+                if (root.left!=null) {
+
+                    existsLeft = searchTree(root.left, bookName);
+                } else {
+                    existsLeft = false;
+                }
+
+                if (root.right!=null) {
+
+                    existsRight = searchTree(root.right, bookName);
+                } else {
+
+                    existsRight = false;
+                }
+
+                return existsLeft || existsRight;
+
             }
 
-
-
-            exists = searchTree(root.left, bookName);
-
-
-
-            exists = searchTree(root.right, bookName);
         }
-
-        return exists;
+        return false;
 // https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
     }
 
@@ -110,14 +125,47 @@ public class BinarySearchTree {
 
         if (root!=null) {
 
-            searchAuthor(root.left, bookName);
+            if (root.book.getName().toLowerCase().equals(bookName.toLowerCase())) {
 
-                if (root.book.getAuthor().toLowerCase().equals(bookName.toLowerCase())) {
+                return root.book.getAuthor();
+            } else if (root.left!=null && root.left.book.getName().toLowerCase().equals(bookName.toLowerCase())) {
 
-                    return root.book.getAuthor();
+                return root.left.book.getAuthor();
+            } else if (root.right!=null && root.right.book.getName().toLowerCase().equals(bookName.toLowerCase())){
+                return root.right.book.getAuthor();
+            } else {
+
+                String leftAuthor, rightAuthor;
+                if (root.left!=null) {
+
+                    leftAuthor = searchAuthor(root.left, bookName);
+                } else {
+                    leftAuthor = "";
                 }
 
-            searchAuthor(root.right, bookName);
+                if (root.right!=null) {
+
+                    rightAuthor = searchAuthor(root.right, bookName);
+                } else {
+
+                    rightAuthor = "";
+                }
+
+                if (leftAuthor.equals("")) {
+                    if (rightAuthor.equals("")) {
+
+                        return "";
+                    } else {
+
+                        return rightAuthor;
+                    }
+                } else {
+                    return leftAuthor;
+                }
+
+
+            }
+
         }
         return "";
     }
@@ -188,7 +236,7 @@ public class BinarySearchTree {
 
             } else {
 
-                System.out.println(newBookName + " + already exists.");
+                System.out.println(newBookName + " already exists.");
             }
 
         } else {
