@@ -13,15 +13,29 @@ public class Main {
         items.add(4);
         items.add(5);
 
-        printDouble(items);
+        //printDouble(items);
+
+        FootballPlayer joe = new FootballPlayer("Joe");
+        BaseballPlayer pat = new BaseballPlayer("Pat");
+        SoccerPlayer beckham = new SoccerPlayer("Beckham");
+
+        Team adelaideCrows = new Team("Adelaide Crows");
+
+        adelaideCrows.addPlayer(joe);
+        adelaideCrows.addPlayer(pat);
+        adelaideCrows.addPlayer(beckham);
+
 
     }
 
     private static void printDouble(ArrayList<Integer> n) {
 
-        for (Object i : n ) {
+        for (int i : n ) {
 
-            System.out.println((Integer) i*2);
+            System.out.println(i*2);
         }
     }
+
+
+
 }

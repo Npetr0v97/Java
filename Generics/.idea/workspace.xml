@@ -19,20 +19,42 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e06c422b-fe83-43fb-8055-ff0a3c6a6e36" name="Default Changelist" comment="" />
+    <list default="true" id="e06c422b-fe83-43fb-8055-ff0a3c6a6e36" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/BaseballPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/FootballPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/SoccerPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BinarySearchTreeBooks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BinarySearchTreeBooks/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1kcECvrprEhRezntBnhH2dSrMAE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -72,8 +94,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="645" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1605998013149">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="645" y="220" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1605998013149" />
+    <state x="92" y="92" width="1496" height="826" key="DiffContextDialog" timestamp="1605998068031">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="92" y="92" width="1496" height="826" key="DiffContextDialog/0.0.1680.1010/313.-768.1360.728@0.0.1680.1010" timestamp="1605998068031" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605992589729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
