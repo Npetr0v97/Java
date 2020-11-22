@@ -20,12 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e06c422b-fe83-43fb-8055-ff0a3c6a6e36" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/BaseballPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/FootballPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/SoccerPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BinarySearchTreeBooks/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BinarySearchTreeBooks/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>

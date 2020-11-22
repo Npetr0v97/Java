@@ -26,6 +26,8 @@ public class Main {
         adelaideCrows.addPlayer(beckham);
 
 
+
+
     }
 
     private static void printDouble(ArrayList<Integer> n) {
