@@ -19,7 +19,7 @@ public class Main {
         BaseballPlayer pat = new BaseballPlayer("Pat");
         SoccerPlayer beckham = new SoccerPlayer("Beckham");
 
-        Team adelaideCrows = new Team("Adelaide Crows");
+        Team<FootballPlayer> adelaideCrows = new Team<>("Adelaide Crows");
 
         adelaideCrows.addPlayer(joe);
         adelaideCrows.addPlayer(pat);
