@@ -21,9 +21,17 @@ public class Main {
 
         Team<FootballPlayer> adelaideCrows = new Team<>("Adelaide Crows");
 
+        //Generics на практиката позволява да се добави параметър в <> скоби до името на класа. Този параметът може да се замени като
+        // всеки друг тип променлива
+
         adelaideCrows.addPlayer(joe);
-        adelaideCrows.addPlayer(pat);
-        adelaideCrows.addPlayer(beckham);
+//        adelaideCrows.addPlayer(pat);
+//        adelaideCrows.addPlayer(beckham);
+        Team<BaseballPlayer> baseballTeam = new Team<>("Chicago Cubs");
+        baseballTeam.addPlayer(pat);
+        Team<SoccerPlayer> soccerTeam = new Team<>("Soccer team");
+        soccerTeam.addPlayer(beckham);
+
 
 
 
