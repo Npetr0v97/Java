@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Team<T extends Player> {
 
     private ArrayList<Player> players;
-    private int won, lost, draw, score;
+    private int won, lost, draw, score, played;
     private String name;
 
 
@@ -12,6 +12,10 @@ public class Team<T extends Player> {
 
         players = new ArrayList<Player>();
         this.name = name;
+        this.played = 0;
+        this.won = 0;
+        this.lost = 0;
+        this.draw = 0;
 
         addPlayer(player);
     }
@@ -29,7 +33,7 @@ public class Team<T extends Player> {
     }
 
     public void playGame(Team<T> oppositeTeam, int ourScore, int theirScore, boolean drawPrint) {
-
+        played++;
         if (ourScore > theirScore) {
             System.out.println(name + " won.");
             won++;
@@ -59,6 +63,6 @@ public class Team<T extends Player> {
         }
     }
 
-    //todo toString override - team name + wins + losses + draws + scoreto
+    //todo toString override - team name + wins + losses + draws + score + played | toString
 
 }
