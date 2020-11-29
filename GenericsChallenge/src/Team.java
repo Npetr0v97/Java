@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public class Team<T extends Player> {
+public class Team<T extends Player> implements Comparable<Team<T>> {
 
-    private ArrayList<Player> players;
+    private ArrayList<T> players;
     private int won, lost, draw, score, played;
     private String name;
 
@@ -10,12 +10,13 @@ public class Team<T extends Player> {
 
     public Team(String name, T player) {
 
-        players = new ArrayList<Player>();
+        players = new ArrayList<>();
         this.name = name;
         this.played = 0;
         this.won = 0;
         this.lost = 0;
         this.draw = 0;
+        this.score = 0;
 
         addPlayer(player);
     }
@@ -37,12 +38,14 @@ public class Team<T extends Player> {
         if (ourScore > theirScore) {
             System.out.println(name + " won.");
             won++;
+            score+=3;
         } else if (ourScore < theirScore) {
 
             lost++;
         } else {
 
             draw++;
+            score+=1;
             if (drawPrint) {
 
                 System.out.println("Draw.");
@@ -63,6 +66,23 @@ public class Team<T extends Player> {
         }
     }
 
-    //todo toString override - team name + wins + losses + draws + score + played | toString
+    @Override
+    public String toString() {
 
+        return name + ": " + score + "PTS ( " + won + " wins, " + lost + " losses and " + draw + " draws from " + played + " played games)";
+    }
+
+
+    @Override
+    public int compareTo(Team<T> team) {
+        if (this.score > team.score) {
+
+            return -1;
+        } else if (this.score < team.score) {
+
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
