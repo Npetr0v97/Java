@@ -3,12 +3,12 @@ package com.example.seriesFunctions;
 public class Main {
 
     public static void main(String[] args) {
-	    String privateVar = " this is main";
+	    String varFour = " this is main";
 
         ScopeCheck scopeInstance = new ScopeCheck();
 
-        System.out.println("PrivateVar is " + scopeInstance.getPrivateVar());
-        System.out.println(privateVar);
+        System.out.println("PrivateVar is " + scopeInstance.getVarOne());
+        System.out.println(varFour);
 
         scopeInstance.timesTwo();
 
