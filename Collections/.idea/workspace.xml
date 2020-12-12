@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87b680a6-6ad2-42d9-b8ef-81e8c71113b5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/example/seriesFunctions/Map.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/seriesFunctions/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/seriesFunctions/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/seriesFunctions/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/seriesFunctions/Theatre.java" afterDir="false" />
