@@ -26,13 +26,19 @@ public class MapProgram {
         System.out.println(language.get("Java"));
         System.out.println("==========================");
 
-        language.remove("Lisp");
-        if (language.remove("Algol","family of algorithmic languages")) {
+//        language.remove("Lisp");
+        if (language.remove("Algol","an algorithmic language")) {
 
             System.out.println("Algol removed");
         } else {
 
             System.out.println("Key-value not found");
+        }
+
+        if (language.replace("Lisp", "this will not work","functional languages")) {
+            System.out.println("List replaced");
+        } else {
+            System.out.println("lisp is not replaced");
         }
 
         for (String key: language.keySet()) {
