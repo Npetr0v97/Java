@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,6 +9,13 @@ public class Main {
     private static Map<Integer, Location> locations = new HashMap<Integer,Location>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        boolean isInt;
+        boolean quit = false;
+        boolean quitTraveling = false;
+        int choice;
+        int curLocation = 1;
+        int counter;
+        String newLocation;
 
         locations.put(1, new Location(1, "Road","You are standing at the end of a road before a small brick building"));
         locations.put(2, new Location(2,"Hill","You are at the top of a hill"));
@@ -15,34 +23,102 @@ public class Main {
         locations.put(4, new Location(4,"Valley","You are in a valley beside a stream"));
         locations.put(5, new Location(5,"Forest","You are in the forest"));
 
-        // TODO: 23.12.2020 г. Add the directions for all locations
+        locations.get(1).addExit("Forest","North");
+        locations.get(1).addExit("Building","East");
+        locations.get(1).addExit("Valley","South");
+        locations.get(1).addExit("Hill","West");
 
-        // TODO: 23.12.2020 г. Do while flow with choices 1. Travel / 2. Quit 
+        locations.get(2).addExit("Forest","North");
 
-        // TODO: 23.12.2020 г. Display available directions with the locations in brackets
-        //Current location: Road
-        //1. North (Forest)
-        //2. East (Building)
-        //3. South (Valley)
-        //4. West (Hill)
+        locations.get(3).addExit("Road","West");
 
-        int loc = 1;
+        locations.get(4).addExit("Road","North");
+        locations.get(4).addExit("Hill","West");
 
-        while (true) {
+        locations.get(5).addExit("Road","South");
+        locations.get(5).addExit("Hill","West");
 
-            System.out.println(locations.get(loc).getDescription());
 
-            if (loc == 0) {
+        while (!quit) {
 
-                break;
+            System.out.println("What do you want to do?");
+            System.out.println("1. Travel");
+            System.out.println("2. Quit");
+            System.out.println("--------------");
+            System.out.print("Choice: ");
+            isInt = scanner.hasNextInt();
+            if (isInt) {
+
+                choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice < 1 || choice > 2) {
+                    System.out.println("Invalid choice.");
+                    choice = -1;
+                }
+            } else {
+
+                System.out.println("Invalid choice.");
+                choice=-1;
             }
 
-            loc = scanner.nextInt();
-            if (!locations.containsKey(loc)) {
+            System.out.println();
 
-                System.out.println("You cannot go in the direction");
+            switch (choice) {
+
+                case 1:
+                    quitTraveling = false;
+                    while (!quitTraveling) {
+                        System.out.println("Current location is " + locations.get(curLocation).getName() + " - " + locations.get(curLocation).getDescription());
+                        counter = 1;
+                        for (String l : locations.get(curLocation).getExits().keySet()) {
+
+                            System.out.println(counter + ". " + l + " (" + locations.get(curLocation).getExits().get(l) + ")");
+                            counter++;
+                        }
+                        System.out.print("Choose next location or write exit: ");
+                        newLocation = scanner.nextLine();
+                        if (locations.get(curLocation).getExits().containsKey(newLocation)) {
+
+                            newLocation = newLocation.toLowerCase();
+                            switch (newLocation) {
+
+                                case "road":
+                                    curLocation = 1;
+                                    break;
+                                case "hill":
+                                    curLocation = 2;
+                                    break;
+                                case "building":
+                                    curLocation = 3;
+                                    break;
+                                case "valley":
+                                    curLocation = 4;
+                                    break;
+                                case "forest":
+                                    curLocation = 5;
+                                    break;
+                                default:
+                                    quitTraveling = true;
+
+                                    break;
+
+                            }
+                        } else {
+
+                            System.out.println("Exiting travel");
+                            quitTraveling = true;
+                        }
+
+                    }
+
+                    break;
+                default:
+                    quit = true;
+                    System.out.println("Exiting program.");
             }
         }
+
+       
 
     }
 }
