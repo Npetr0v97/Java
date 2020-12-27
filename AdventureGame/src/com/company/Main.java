@@ -15,13 +15,17 @@ public class Main {
         int choice;
         int curLocation = 1;
         int counter;
+        String[] choiceArray;
         String newLocation;
+        boolean foundLocation = false;
 
         locations.put(1, new Location(1, "Road","You are standing at the end of a road before a small brick building"));
         locations.put(2, new Location(2,"Hill","You are at the top of a hill"));
         locations.put(3, new Location(3,"Building","You are inside a building, a well house for a small spring"));
         locations.put(4, new Location(4,"Valley","You are in a valley beside a stream"));
         locations.put(5, new Location(5,"Forest","You are in the forest"));
+
+//        Map<String, String> tempExits = new HashMap<String, String>();
 
         locations.get(1).addExit("Forest","North");
         locations.get(1).addExit("Building","East");
@@ -38,13 +42,6 @@ public class Main {
         locations.get(5).addExit("Road","South");
         locations.get(5).addExit("Hill","West");
 
-        //TODO         // Change the program to allow players to type full words, or phrases, then move to the
-        //        // correct location based upon their input.
-        //        // The player should be able to type commands such as "Go West", "run South", or just "East"
-        //        // and the program will move to the appropriate location if there is one.  As at present, an
-        //        // attempt to move in an invalid direction should print a message and remain in the same place.
-        //        //
-        //        // Single letter commands (N, W, S, E, Q) should still be available.
 
 
         while (!quit) {
@@ -84,9 +81,21 @@ public class Main {
                             counter++;
                         }
                         System.out.print("Choose next location or write exit: ");
-                        newLocation = scanner.nextLine();
-                        if (locations.get(curLocation).getExits().containsKey(newLocation)) {
+                        newLocation = scanner.nextLine().toLowerCase();
+                        choiceArray = newLocation.split(" ");
 
+                        for (int i=0; i<choiceArray.length; i++) {
+
+                            String comparison = choiceArray[i].substring(0,1).toUpperCase() + choiceArray[i].substring(1);
+                            if (locations.get(curLocation).getExits().containsKey(comparison)){
+                                foundLocation = true;
+                                newLocation = choiceArray[i];
+                                break;
+                            }
+                        }
+
+                        if (foundLocation) {
+                            foundLocation=false;
                             newLocation = newLocation.toLowerCase();
                             switch (newLocation) {
 

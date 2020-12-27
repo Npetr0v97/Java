@@ -15,7 +15,7 @@ public class Location {
         this.name = name;
         this.description = description;
 
-        exits = new HashMap<String, String>();
+        this.exits = new HashMap<String,String>();
     }
 
 
