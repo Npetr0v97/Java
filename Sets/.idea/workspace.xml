@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33251608-8734-40a7-83f9-6b6f670c1385" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/Dog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Labrador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/SetMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Sets/com/company/Dog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Sets/com/company/Dog.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.DogMain">
+  <component name="RunManager" selected="Application.SetMain">
     <configuration name="DogMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.DogMain" />
       <module name="Sets" />
@@ -125,8 +126,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SetMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.SetMain" />
+      <module name="Sets" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SetMain" />
         <item itemvalue="Application.DogMain" />
         <item itemvalue="Application.Main" />
       </list>
