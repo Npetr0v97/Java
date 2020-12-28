@@ -58,6 +58,24 @@ public class SetMain {
         Set<String> diff2 = new HashSet<>(divine);
         diff2.removeAll(nature);
         printSet(diff2);
+
+        Set<String> unionTest = new HashSet<>(nature);
+        unionTest.addAll(divine);
+        Set<String> intersectionTest = new HashSet<>(nature);
+        intersectionTest.retainAll(divine);
+        System.out.println("Symmetric difference");
+        unionTest.removeAll(intersectionTest);
+        printSet(unionTest);
+
+        if (nature.containsAll(intersectionTest)) {
+
+            System.out.println("intersection is subset of nature");
+        }
+
+        if (divine.containsAll(intersectionTest)) {
+
+            System.out.println("intersection is a subset of divine");
+        }
     }
 
     private static void printSet(Set<String> set) {
@@ -65,7 +83,7 @@ public class SetMain {
         System.out.println("\t");
         for (String s: set) {
 
-            System.out.println(s + " ");
+            System.out.print(s + " ");
 
         }
         System.out.println();
