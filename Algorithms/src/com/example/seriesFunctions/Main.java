@@ -13,5 +13,12 @@ public class Main {
         int[] sortedArray = InsertionSort.insertionSort(intArray);
 
         System.out.println(Arrays.toString(sortedArray));
+        System.out.println("Fibonacci sequence");
+        for (int i = 1; i <= 10 ; i++) {
+
+            System.out.println("Element " + i + ": " + DynamicProgramming.fibRec(i));
+        }
+
+        System.out.println(DynamicProgramming.fib(40));
     }
 }
