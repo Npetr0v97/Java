@@ -3,19 +3,36 @@ package com.company;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class HeavenlyBody {
+public final class HeavenlyBodyClass {
 
+    public static final int PLANET = 1, MOON = 2, STAR = 3;
     private final String name;
     private final double orbitalPeriod;
-    private final Set<HeavenlyBody> satellites;
+    private final String bodyType;
+    private final Set<HeavenlyBodyClass> satellites;
 
-    public HeavenlyBody(String name, double orbitalPeriod) {
+    public HeavenlyBodyClass(String name, double orbitalPeriod, int bodyType) {
         this.name = name;
+        switch (bodyType) {
+
+            case PLANET:
+                this.bodyType = "planet";
+                break;
+            case MOON:
+                this.bodyType = "moon";
+                break;
+            case STAR:
+                this.bodyType = "star";
+                break;
+            default:
+                this.bodyType ="planet";
+                break;
+        }
         this.orbitalPeriod = orbitalPeriod;
         this.satellites = new HashSet<>();
     }
 
-    public boolean addMoon(HeavenlyBody moon) {
+    public boolean addMoon(HeavenlyBodyClass moon) {
 
         return this.satellites.add(moon);
     }
@@ -30,7 +47,7 @@ public final class HeavenlyBody {
         return orbitalPeriod;
     }
 
-    public Set<HeavenlyBody> getSatellites() {
+    public Set<HeavenlyBodyClass> getSatellites() {
 
         return new HashSet<>(satellites);
     }
@@ -52,7 +69,7 @@ public final class HeavenlyBody {
             return false;
         }
 
-        String objName = ((HeavenlyBody) obj).getName();
+        String objName = ((HeavenlyBodyClass) obj).getName();
         return this.name.equals(objName);
     }
 
