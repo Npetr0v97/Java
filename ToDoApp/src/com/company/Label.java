@@ -11,8 +11,13 @@ public class Label implements Comparable<Label>{
         this.name = name;
         this.id = counter;
         counter++;
-
     }
+
+    public Label(String name, int id) {
+        this.name = name;
+        this.id = -1;
+    }
+
 
     public int getId() {
         return id;
@@ -23,23 +28,30 @@ public class Label implements Comparable<Label>{
     }
 
     @Override
+    public String toString() {
+        return "Label: " + name + " (ID: #" + id + ")";
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Label label = (Label) o;
-        return name.equals(label.name);
+        return name.equals(label.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name) + 123;
+        return this.name.hashCode() + 123;
     }
+
 
     @Override
     public int compareTo(Label label) {
-        if (this.name.equals(label.getName())) {
+        if (this == label) {
             return 0;
         }
+
 
         return  this.name.compareTo(label.getName());
 

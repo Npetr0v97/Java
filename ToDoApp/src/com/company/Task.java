@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 
 public class Task {
@@ -27,7 +25,7 @@ public class Task {
         this.dueDate = dueDate;
         this.dueTime = dueTime;
         this.repeat = repeat;
-        this.labels = new LinkedHashMap<>();
+        this.labels = new TreeMap<>();
         switch (notificationType) {
             case sound:
                 this.notificationType = "Sound only";
@@ -38,6 +36,26 @@ public class Task {
             case vibrationAndSound:
                 this.notificationType = "Vibration and sound";
                 break;
+        }
+    }
+
+    public void addLabel(String name, String description) {
+        Label label = new Label(name, -1);
+        if (labels.containsKey(label)) {
+
+            System.out.println("There is already a label with the name " + name);
+        } else {
+            System.out.println("Label created");
+            labels.put(new Label(name),description);
+        }
+
+        // TODO: 12.1.2021 г. make it so the validation is first / then add the description with a scanner
+    }
+
+    public void showLabels(){
+        int counter = 1;
+        for (Label label : labels.keySet()) {
+            System.out.println(counter + ". " + label.toString() + "\nDescription: " + labels.get(label) + "\n");
         }
     }
 
