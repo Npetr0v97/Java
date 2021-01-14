@@ -13,6 +13,9 @@ public class Main {
         testTask.addLabel("Personal","All tasks regarding work");
         System.out.println();
         testTask.showLabels();
+        testTask.removeLabel("Econt");
+        testTask.removeLabel("Econt");
+        testTask.showLabels();
 
         // TODO: 11.1.2021 г. Main menu
     }

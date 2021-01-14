@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Task {
 
-
+    private static Scanner in = new Scanner(System.in);
 
     public enum NotificationType {
         vibration,
@@ -40,8 +40,8 @@ public class Task {
     }
 
     public void addLabel(String name, String description) {
-        Label label = new Label(name, -1);
-        if (labels.containsKey(label)) {
+
+        if (labels.containsKey(new Label(name, -1))) {
 
             System.out.println("There is already a label with the name " + name);
         } else {
@@ -50,6 +50,18 @@ public class Task {
         }
 
         // TODO: 12.1.2021 г. make it so the validation is first / then add the description with a scanner
+    }
+
+    public void removeLabel(String name) {
+
+        Label label = new Label(name, -1);
+
+        if (labels.containsKey(label)) {
+            labels.remove(label);
+        } else {
+
+            System.out.println("There isn't a label named " + name);
+        }
     }
 
     public void showLabels(){
