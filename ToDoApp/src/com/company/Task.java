@@ -39,17 +39,18 @@ public class Task {
         }
     }
 
-    public void addLabel(String name, String description) {
+    public void addLabel(String name) {
 
         if (labels.containsKey(new Label(name, -1))) {
 
             System.out.println("There is already a label with the name " + name);
         } else {
+            System.out.print("Write the description of the label: ");
+            String description = in.nextLine();
             System.out.println("Label created");
             labels.put(new Label(name),description);
         }
 
-        // TODO: 12.1.2021 г. make it so the validation is first / then add the description with a scanner
     }
 
     public void removeLabel(String name) {
@@ -68,6 +69,40 @@ public class Task {
         int counter = 1;
         for (Label label : labels.keySet()) {
             System.out.println(counter + ". " + label.toString() + "\nDescription: " + labels.get(label) + "\n");
+            counter++;
+        }
+    }
+
+    public void finishTask() {
+        this.finished = true;
+    }
+    public void reopenTask() {
+        this.finished = false;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setDueTime(String dueTime) {
+        this.dueTime = dueTime;
+    }
+
+    public void setRepeat(String repeat) {
+        this.repeat = repeat;
+    }
+
+    public void setNotificationType(NotificationType notificationType) {
+        switch (notificationType) {
+            case sound:
+                this.notificationType = "Sound only";
+                break;
+            case vibration:
+                this.notificationType = "Vibration only";
+                break;
+            case vibrationAndSound:
+                this.notificationType = "Vibration and sound";
+                break;
         }
     }
 
@@ -98,8 +133,5 @@ public class Task {
     public Map<Label, String> getLabels() {
         return Collections.unmodifiableMap(labels);
     }
-
-
-
 
 }

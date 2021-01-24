@@ -4,19 +4,23 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Task testTask = new Task("Work","2021-01-01","12:00","No repeat", Task.NotificationType.vibrationAndSound);
+/*        Task testTask = new Task("Work","2021-01-01","12:00","No repeat", Task.NotificationType.vibrationAndSound);
 
-        testTask.addLabel("Work","All tasks regarding work");
-        testTask.addLabel("Personal","All tasks regarding work");
-        testTask.addLabel("Fiverr","All tasks regarding work");
-        testTask.addLabel("Econt","All tasks regarding work");
-        testTask.addLabel("Personal","All tasks regarding work");
+        testTask.addLabel("Work");
+        testTask.addLabel("Personal");
+        testTask.addLabel("Fiverr");
+        testTask.addLabel("Econt");
+        testTask.addLabel("Personal");
         System.out.println();
         testTask.showLabels();
         testTask.removeLabel("Econt");
         testTask.removeLabel("Econt");
-        testTask.showLabels();
+        testTask.showLabels();*/
 
+        //TODO: add mail validator before account creation - check for "@"
+
+        Account nikolay = new Account("petr0v97","rd971804","nikolay.petrov.petrov.97@gmail.com", Account.TimeFormat.twentyFourHour,true);
+        System.out.println(nikolay);
         // TODO: 11.1.2021 г. Main menu
     }
 }
