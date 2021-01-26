@@ -134,4 +134,16 @@ public class Task {
         return Collections.unmodifiableMap(labels);
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", finished=" + finished +
+                ", dueDate='" + dueDate + '\'' +
+                ", dueTime='" + dueTime + '\'' +
+                ", repeat='" + repeat + '\'' +
+                ", notificationType='" + notificationType + '\'' +
+                "\nLabels: " + this.getLabels().toString() +
+                '}';
+    }
 }

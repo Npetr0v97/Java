@@ -39,6 +39,7 @@ public class Account {
             }
         }
         this.email = email;
+        this.tasks = new LinkedList<>();
     }
     //constructor with added time format
     public Account(String name, String password, String email, TimeFormat timeFormat) {
@@ -69,6 +70,7 @@ public class Account {
         }
 
         this.email = email;
+        this.tasks = new LinkedList<>();
     }
 
     //constructor with added time format and notifications
@@ -100,8 +102,56 @@ public class Account {
         }
         this.notificationsOn = notificationsOn;
         this.email = email;
+        this.tasks = new LinkedList<>();
     }
 
+    public void addTask(String name) {
+
+        String dueDate;
+        String dueTime;
+        String repeat;
+        Task.NotificationType notificationType;
+        int choice;
+        boolean isInt;
+
+        System.out.print("When is the task due: ");
+        dueDate = in.nextLine();
+
+        System.out.print("What is the exact due time: ");
+        dueTime = in.nextLine();
+
+        System.out.print("Should the task repeat: ");
+        repeat = in.nextLine();
+
+        System.out.println("Choose a notification type.\n  1. Vibration\n  2. Sound\n  3. Vibration and sound");
+        isInt = in.hasNextInt();
+
+
+        if (isInt) {
+            choice = in.nextInt();
+            in.nextLine();
+            switch (choice) {
+                case 1:
+                    notificationType = Task.NotificationType.vibration;
+                    break;
+                case 2:
+                    notificationType = Task.NotificationType.sound;
+                    break;
+                case 3:
+                    notificationType = Task.NotificationType.vibrationAndSound;
+                    break;
+                default:
+                    System.out.println("Notification type default to vibration and sound");
+                    notificationType = Task.NotificationType.vibrationAndSound;
+                    break;
+            }
+        } else {
+            System.out.println("Notification type default to vibration and sound");
+            notificationType = Task.NotificationType.vibrationAndSound;
+        }
+
+        tasks.add(new Task(name, dueDate, dueTime,repeat, notificationType));
+    }
     // TODO: 11.1.2021 г. search tasks
     // TODO: 11.1.2021 г. finish tasks
     // TODO: 11.1.2021 г. visualize all done tasks + all not done tasks

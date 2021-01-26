@@ -21,6 +21,9 @@ public class Main {
 
         Account nikolay = new Account("petr0v97","rd971804","nikolay.petrov.petrov.97@gmail.com", Account.TimeFormat.twentyFourHour,true);
         System.out.println(nikolay);
+
+        nikolay.addTask("Homework");
+        System.out.println(nikolay.getTasks().get(0));
         // TODO: 11.1.2021 г. Main menu
     }
 }
