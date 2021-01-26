@@ -1,8 +1,7 @@
 package com.company;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.Scanner;
+import javax.swing.text.html.HTMLDocument;
+import java.util.*;
 
 public class Account {
 
@@ -151,6 +150,37 @@ public class Account {
         }
 
         tasks.add(new Task(name, dueDate, dueTime,repeat, notificationType));
+    }
+
+    public void searchTask(String name) {
+
+
+
+        ListIterator<Task> it = tasks.listIterator();
+        boolean foundTask = false;
+        String testSubstring;
+
+        while (it.hasNext()) {
+
+            testSubstring = it.next().getName().toLowerCase();
+
+            String[] substringArray = testSubstring.toLowerCase().split(" ");
+            for (String s : substringArray) {
+
+                if (s.equals(name)) {
+
+                    System.out.println(it.previous().toString());
+                    it.next();
+                    foundTask = true;
+
+                }
+            }
+        }
+
+        if (!foundTask) {
+
+            System.out.println("Task " + name + " not available");
+        }
     }
     // TODO: 11.1.2021 г. search tasks
     // TODO: 11.1.2021 г. finish tasks
