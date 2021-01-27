@@ -19,16 +19,16 @@ public class Main {
 
         //TODO: add mail validator before account creation - check for "@"
 
-        Account nikolay = new Account("petr0v97","rd971804","nikolay.petrov.petrov.97@gmail.com", Account.TimeFormat.twentyFourHour,true);
+        Account nikolay = new Account("petrov");
         System.out.println(nikolay);
 
-        nikolay.addTask("Homework");
+/*        nikolay.addTask("Homework");
         nikolay.addTask("School");
         nikolay.addTask("Home work");
 
         //System.out.println(nikolay.getTasks().get(0));
 
-        nikolay.searchTask("homer");
+        nikolay.searchTask("homer");*/
         // TODO: 11.1.2021 г. Main menu
     }
 }

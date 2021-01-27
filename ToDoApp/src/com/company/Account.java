@@ -8,6 +8,7 @@ public class Account {
     private static Scanner in = new Scanner(System.in);
 
     private static int id = 1;
+    private final int accountId;
     private String name;
     private String password;
     private String email;
@@ -19,64 +20,27 @@ public class Account {
         twentyFourHour,
         amAndPm
     }
-    //basic constructor
-    public Account(String name, String password, String email) {
-        this.name = name;
-        boolean passwordIsConfirmed = false;
-        String confirmedPassword;
-        while (!passwordIsConfirmed) {
-
-            System.out.print("Confirm password: ");
-            confirmedPassword = in.nextLine();
-
-            if (password.equals(confirmedPassword)) {
-                this.password = password;
-                passwordIsConfirmed = true;
-            } else {
-
-                System.out.println("The passwords don't match");
-            }
-        }
-        this.email = email;
-        this.tasks = new LinkedList<>();
+    public enum SearchType{
+        all,
+        open,
+        done
     }
-    //constructor with added time format
-    public Account(String name, String password, String email, TimeFormat timeFormat) {
-        this.name = name;
-        boolean passwordIsConfirmed = false;
-        String confirmedPassword;
-        while (!passwordIsConfirmed) {
 
-            System.out.print("Confirm password: ");
-            confirmedPassword = in.nextLine();
-
-            if (password.equals(confirmedPassword)) {
-                this.password = password;
-                passwordIsConfirmed = true;
-            } else {
-
-                System.out.println("The passwords don't match");
-            }
-        }
-
-        switch (timeFormat) {
-            case twentyFourHour:
-                this.timeFormat = "24-hour";
-                break;
-            case amAndPm:
-                this.timeFormat = "AM-PM";
-                break;
-        }
-
-        this.email = email;
-        this.tasks = new LinkedList<>();
-    }
 
     //constructor with added time format and notifications
-    public Account(String name, String password, String email, TimeFormat timeFormat, boolean notificationsOn) {
-        this.name = name;
+    public Account(String email) {
+
         boolean passwordIsConfirmed = false;
         String confirmedPassword;
+        boolean isInt;
+        int formatChoice;
+
+        System.out.print("Write down your username: ");
+        this.name = in.nextLine();
+
+        System.out.print("Write down your password: ");
+        this.password = in.nextLine();
+
         while (!passwordIsConfirmed) {
 
             System.out.print("Confirm password: ");
@@ -91,17 +55,62 @@ public class Account {
             }
         }
 
-        switch (timeFormat) {
-            case twentyFourHour:
-                this.timeFormat = "24-hour";
-                break;
-            case amAndPm:
-                this.timeFormat = "AM-PM";
-                break;
+        System.out.print("Time format: \n  1. 24-hour\n  2. AM-PM\n Choose: ");
+
+        isInt = in.hasNextInt();
+
+        if (isInt) {
+
+            formatChoice = in.nextInt();
+            switch (formatChoice) {
+                case 1:
+                    this.timeFormat = "24-hour";
+                    break;
+                case 2:
+                    this.timeFormat = "AM-PM";
+                    break;
+                default:
+                    System.out.println("Format defaulted to 24-hour.");
+                    this.timeFormat = "24-hour";
+                    break;
+            }
+        } else {
+
+            System.out.println("Format defaulted to 24-hour.");
+            this.timeFormat = "24-hour";
         }
-        this.notificationsOn = notificationsOn;
+
+        System.out.print("Notifications: \n  1. On\n  2. Off\n Choose: ");
+
+        isInt = in.hasNextInt();
+
+        if (isInt) {
+
+            formatChoice = in.nextInt();
+            switch (formatChoice) {
+                case 1:
+                    this.notificationsOn = true;
+                    break;
+                case 2:
+                    this.notificationsOn = false;
+                    break;
+                default:
+                    System.out.println("Notifications left on by default.");
+                    this.notificationsOn = true;
+                    break;
+            }
+        } else {
+
+            System.out.println("Notifications left on by default.");
+            this.notificationsOn = true;
+        }
+
+
         this.email = email;
         this.tasks = new LinkedList<>();
+        this.accountId = id;
+        id++;
+        //// TODO: 27.1.2021 г. add options to set the rest of the fields
     }
 
     public void addTask(String name) {
@@ -182,7 +191,64 @@ public class Account {
             System.out.println("Task " + name + " not available");
         }
     }
-    // TODO: 11.1.2021 г. search tasks
+
+    public void finishTask() {
+
+    }
+
+    public void showTasks(SearchType searchType) {
+        //// TODO: 27.1.2021 г. Testing needed
+        switch (searchType) {
+
+            case all:
+                showFilteredTasks();
+                break;
+            case open:
+                showFilteredTasks(true);
+                break;
+            case done:
+                showFilteredTasks(false);
+                break;
+        }
+    }
+    private void showFilteredTasks() {
+        int counter = 1;
+        ListIterator<Task> it = tasks.listIterator();
+        System.out.println("List of Tasks--------------");
+        while (it.hasNext()) {
+            System.out.println(counter + ". " + it.next().toString());
+            counter++;
+        }
+
+    }
+
+    private void showFilteredTasks(boolean onlyOpenTasks) {
+        int counter = 1;
+        ListIterator<Task> it = tasks.listIterator();
+
+        if (onlyOpenTasks) {
+            System.out.println("List of Open Tasks--------------");
+            while (it.hasNext()) {
+                Task currentTask = it.next();
+                if (currentTask.isFinished()) {
+                    System.out.println(counter + ". " + it.next().toString());
+                    counter++;
+                }
+            }
+        } else {
+            System.out.println("List of Done Tasks--------------");
+            while (it.hasNext()) {
+                Task currentTask = it.next();
+                if (!currentTask.isFinished()) {
+                    System.out.println(counter + ". " + it.next().toString());
+                    counter++;
+                }
+            }
+        }
+    }
+
+
+
     // TODO: 11.1.2021 г. finish tasks
     // TODO: 11.1.2021 г. visualize all done tasks + all not done tasks
     // TODO: 11.1.2021 г. create tasks + all of its components
@@ -199,7 +265,8 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "name='" + name + '\'' +
+                "accountId=" + accountId +
+                ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", timeFormat='" + timeFormat + '\'' +
