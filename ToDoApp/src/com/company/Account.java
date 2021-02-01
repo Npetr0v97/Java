@@ -110,7 +110,7 @@ public class Account {
         this.tasks = new LinkedList<>();
         this.accountId = id;
         id++;
-        //// TODO: 27.1.2021 г. add options to set the rest of the fields
+
     }
 
     public void addTask(String name) {
@@ -192,8 +192,45 @@ public class Account {
         }
     }
 
-    public void finishTask() {
+    public void finishTask(String taskName) {
+        // TODO: 1.2.2021 г. Needs testing
 
+
+        if (taskExists(taskName)) {
+
+            ListIterator<Task> it = tasks.listIterator();
+
+            while (it.hasNext()) {
+
+                Task currentTask = it.next();
+                if (currentTask.getName().equalsIgnoreCase(taskName)) {
+
+                    it.previous().finishTask();
+                    it.next();
+                }
+            }
+            System.out.println("Task(s) finished");
+        } else {
+
+            System.out.println("There is no task with the name " + taskName);
+        }
+    }
+
+    private boolean taskExists(String taskName) {
+
+        ListIterator<Task> it = tasks.listIterator();
+
+        while (it.hasNext()) {
+
+            Task currentTask = it.next();
+
+            if (currentTask.getName().equalsIgnoreCase(taskName)) {
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public void showTasks(SearchType searchType) {
