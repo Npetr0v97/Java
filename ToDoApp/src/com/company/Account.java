@@ -284,10 +284,38 @@ public class Account {
         }
     }
 
+    public void addLabelToTask() {
+        int choice;
+        boolean isInt;
+        String labelName;
+
+        this.showTasks(SearchType.all);
+        System.out.print("Choose a task to add a label: ");
+        isInt = in.hasNextInt();
+        if (isInt) {
+
+            choice = in.nextInt();
+            in.nextLine();
+            choice--;
+            if (choice>=0 && choice<tasks.size()) {
+
+                System.out.print("What is the name of the label you want to add: ");
+                labelName = in.nextLine();
+
+                tasks.get(choice).addLabel(labelName);
+                //// TODO: 4.2.2021 г. needs to be finished 
+            }
+        }
 
 
-    // TODO: 11.1.2021 г. finish tasks
-    // TODO: 11.1.2021 г. visualize all done tasks + all not done tasks
+    }
+
+    public void removeLabelFromTask() {
+
+
+    }
+
+
     // TODO: 11.1.2021 г. create tasks + all of its components
     // TODO: 11.1.2021 г. remove tasks
     // TODO: set password if the current password is written down + have confirm new password
