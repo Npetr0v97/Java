@@ -105,6 +105,11 @@ public class Account {
             this.notificationsOn = true;
         }
 
+        while (!email.contains("@")) {
+
+            System.out.print("Invalid e-mail format. Please write down a valid e-mail: ");
+            email = in.nextLine();
+        }
 
         this.email = email;
         this.tasks = new LinkedList<>();
@@ -159,6 +164,33 @@ public class Account {
         }
 
         tasks.add(new Task(name, dueDate, dueTime,repeat, notificationType));
+    }
+
+    public void removeTask(String taskName) {
+
+        Task tempTask = new Task(taskName,"","","", Task.NotificationType.vibrationAndSound);
+
+        if (tasks.contains(tempTask)) {
+            int numberOfTasks = 0; // Брояч, който отчита колко задачи са били изтрити
+            for (Task t : tasks) {
+
+                if (t.getName().equalsIgnoreCase(tempTask.getName())) {
+
+                    tasks.remove(t);
+                    numberOfTasks++;
+                }
+            }
+
+            if (numberOfTasks <= 1) {
+
+                System.out.println(numberOfTasks + " task removed!");
+            } else {
+
+                System.out.println(numberOfTasks + " tasks removed!");
+            }
+        } else {
+            System.out.println("A task with the name " + taskName + " couldn't be found!");
+        }
     }
 
     public void searchTask(String name) {
@@ -303,22 +335,95 @@ public class Account {
                 labelName = in.nextLine();
 
                 tasks.get(choice).addLabel(labelName);
-                //// TODO: 4.2.2021 г. needs to be finished 
+                //// TODO: 4.2.2021 г. needs to be finished
+            } else {
+                System.out.println("Wrong task number.");
             }
+        } else {
+
+            System.out.println("Wrong task number.");
         }
 
 
     }
 
     public void removeLabelFromTask() {
+        int choice;
+        boolean isInt;
+        String labelName;
 
+        this.showTasks(SearchType.all);
+        System.out.print("Choose a task to remove a label from: ");
+        isInt = in.hasNextInt();
+        if (isInt) {
+
+            choice = in.nextInt();
+            in.nextLine();
+            choice--;
+            if (choice>=0 && choice<tasks.size()) {
+
+                System.out.print("What is the name of the label you want to remove: ");
+                labelName = in.nextLine();
+
+                tasks.get(choice).removeLabel(labelName);
+            } else {
+                System.out.println("Wrong task number.");
+            }
+        } else {
+
+            System.out.println("Wrong task number.");
+        }
 
     }
 
+    public void setNewEmail(String password) { // След 3 опита се извежда грешка
 
-    // TODO: 11.1.2021 г. create tasks + all of its components
-    // TODO: 11.1.2021 г. remove tasks
-    // TODO: set password if the current password is written down + have confirm new password
+        boolean emailChanged = false;
+        int passwordAttempts = 0;
+
+        while (passwordAttempts < 3) {
+
+            if (password.equals(this.password)) {
+
+                System.out.print("Choose new e-mail address: ");
+                String newEmail = in.nextLine();
+
+
+
+                while (!emailChanged) {
+
+                    if (newEmail.equals(this.email)) {
+
+                        System.out.print("You can't choose the same e-mail as the current one. Please write down a new e-mail: ");
+                        newEmail = in.nextLine();
+                    } else if (!newEmail.contains("@")) {
+
+                        System.out.print("Invalid e-mail format. Please, write down a valid e-mail: ");
+                        newEmail = in.nextLine();
+                    } else {
+
+                        this.email = newEmail;
+                        System.out.println("New e-mail set to " + newEmail);
+                        emailChanged=true;
+                    }
+                }
+            } else {
+
+                passwordAttempts++;
+                if (passwordAttempts == 3) {
+
+                    System.out.println("E-mail change rejected due to 3 consecutive failed attempts.");
+                } else {
+
+                    System.out.print("Wrong password. Please write down the correct password: ");
+                    password = in.nextLine();
+                }
+            }
+
+        }
+    }
+
+
     // TODO: set email if current password is chosen + have confirm new email
 
 

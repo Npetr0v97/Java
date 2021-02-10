@@ -17,7 +17,7 @@ public class Main {
         testTask.removeLabel("Econt");
         testTask.showLabels();*/
 
-        //TODO: add mail validator before account creation - check for "@"
+
 
         Account nikolay = new Account("petrov");
         System.out.println(nikolay);
