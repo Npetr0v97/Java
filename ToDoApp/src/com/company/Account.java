@@ -2,6 +2,8 @@ package com.company;
 
 import javax.swing.text.html.HTMLDocument;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Account {
 
@@ -87,6 +89,7 @@ public class Account {
         if (isInt) {
 
             formatChoice = in.nextInt();
+            in.nextLine();
             switch (formatChoice) {
                 case 1:
                     this.notificationsOn = true;
@@ -105,10 +108,14 @@ public class Account {
             this.notificationsOn = true;
         }
 
-        while (!email.contains("@")) {
+        Pattern mailValidation = Pattern.compile("^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,5})$");
+        Matcher checkEmail = mailValidation.matcher(email);
+
+        while (!checkEmail.matches()) {
 
             System.out.print("Invalid e-mail format. Please write down a valid e-mail: ");
             email = in.nextLine();
+            checkEmail = mailValidation.matcher(email);
         }
 
         this.email = email;
@@ -209,8 +216,13 @@ public class Account {
             for (String s : substringArray) {
 
                 if (s.equals(name)) {
+                    Task tempTask = it.previous();
+                    System.out.println(tempTask.getName() + (tempTask.isFinished()? ("[X]"):("[ ]")) + "\n"
+                    + "Due date: " + tempTask.getDueDate() + " " + tempTask.getDueTime() + "\n"
+                    + "Repeat: " + tempTask.getRepeat() + "\n"
+                    + "Notification type: " + tempTask.getNotificationType() + "\n");
 
-                    System.out.println(it.previous().toString());
+                    //System.out.println(it.previous().toString());
                     it.next();
                     foundTask = true;
 

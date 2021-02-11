@@ -22,13 +22,13 @@ public class Main {
         Account nikolay = new Account("petrov");
         System.out.println(nikolay);
 
-/*        nikolay.addTask("Homework");
+     nikolay.addTask("Homework");
         nikolay.addTask("School");
         nikolay.addTask("Home work");
 
-        //System.out.println(nikolay.getTasks().get(0));
 
-        nikolay.searchTask("homer");*/
+
+        nikolay.searchTask("home");
         // TODO: 11.1.2021 г. Main menu
     }
 }
