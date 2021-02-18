@@ -12,7 +12,8 @@ public class ToDoApp {
         if (foundAccount >= 0) {
             System.out.print(". ");
             //continue with log in
-            //// TODO: 18.2.2021 г. Needs to be tested. Can be tested with the temp Account constructor
+            // TODO: 18.2.2021 г. Needs to be tested. Can be tested with the temp Account constructor
+            // TODO: 18.2.2021 г. Test BTS vs. normal search 
         } else {
 
             System.out.println("There is no registered user the e-mail " + email + "\nWould you like to create a new account?"+
