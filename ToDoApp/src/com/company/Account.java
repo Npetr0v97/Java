@@ -5,7 +5,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Account {
+public class Account implements Comparable<Account>{
 
     private static Scanner in = new Scanner(System.in);
 
@@ -18,6 +18,11 @@ public class Account {
     private boolean notificationsOn;
     private LinkedList<Task> tasks;
 
+    @Override
+    public int compareTo(Account account) {
+        return this.email.compareToIgnoreCase(account.getEmail());
+    } //used to be give access to the BTS search in the ToDoApp class
+
     public enum TimeFormat{
         twentyFourHour,
         amAndPm
@@ -28,7 +33,12 @@ public class Account {
         done
     }
 
+    public Account(String email,String password) { //temp Account constructor
 
+        this.email = email;
+        this.password = password;
+        accountId = 0;
+    }
     //constructor with added time format and notifications
     public Account(String email) {
 
@@ -237,7 +247,7 @@ public class Account {
     }
 
     public void finishTask(String taskName) {
-        // TODO: 1.2.2021 г. Needs testing
+
 
 
         if (taskExists(taskName)) {
@@ -278,7 +288,7 @@ public class Account {
     }
 
     public void showTasks(SearchType searchType) {
-        //// TODO: 27.1.2021 г. Testing needed
+
         switch (searchType) {
 
             case all:
@@ -347,13 +357,13 @@ public class Account {
                 labelName = in.nextLine();
 
                 tasks.get(choice).addLabel(labelName);
-                //// TODO: 4.2.2021 г. needs to be finished
+
             } else {
                 System.out.println("Wrong task number.");
             }
         } else {
 
-            System.out.println("Wrong task number.");
+            System.out.println("Invalid choice.");
         }
 
 
@@ -435,8 +445,6 @@ public class Account {
         }
     }
 
-
-    // TODO: set email if current password is chosen + have confirm new email
 
 
     @Override
