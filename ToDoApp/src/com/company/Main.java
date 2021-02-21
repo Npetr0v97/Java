@@ -1,5 +1,7 @@
 package com.company;
 
+import java.awt.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,7 +20,7 @@ public class Main {
         testTask.showLabels();*/
 
 
-
+/*
         Account nikolay = new Account("petrov");
         System.out.println(nikolay);
 
@@ -28,7 +30,9 @@ public class Main {
 
 
 
-        nikolay.searchTask("home");
+        nikolay.searchTask("home");*/
         // TODO: 11.1.2021 г. Main menu
+
+
     }
 }
