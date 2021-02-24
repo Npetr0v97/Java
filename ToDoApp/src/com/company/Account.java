@@ -20,6 +20,8 @@ public class Account implements Comparable<Account>{
 
     @Override
     public int compareTo(Account account) {
+        System.out.print(". ");
+
         return this.email.compareToIgnoreCase(account.getEmail());
     } //used to be give access to the BTS search in the ToDoApp class
 
