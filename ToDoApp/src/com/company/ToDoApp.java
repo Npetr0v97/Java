@@ -12,12 +12,19 @@ public class ToDoApp {
         boolean exit=false;
         boolean loginSuccessful=false;
         int foundAccount;
+        boolean isInt;
         int primaryChoice; // Used for the main menu
         int secondaryChoice; // Used for the secondary menu
 
             while (!exit){
 
+                printMenu();
+                isInt = scanner.hasNextInt();
 
+                if (isInt) {
+                    primaryChoice 
+
+                }
 
                 while ()
                 System.out.print("Write down your password: ");
@@ -46,7 +53,7 @@ public class ToDoApp {
 
     private void printMenu() {
 
-        System.out.println("MAIN MENU: \n1. Log in 2. Create a new account");
+        System.out.println("MAIN MENU: \n1. Log in 2. Create a new account \n3. List of all accounts");
 
     }
     // TODO: 18.2.2021 г. Test BTS using a testing algorithm like printing dots
