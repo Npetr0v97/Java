@@ -3,10 +3,10 @@ package com.company;
 import java.util.*;
 
 public class ToDoApp {
-    Scanner scanner = new Scanner(System.in);
-    private List<Account> accounts = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
+    private static List<Account> accounts = new ArrayList<>();
 
-    public void mainMenu() {
+    public static void mainMenu() {
 
         String password;
         boolean exit=false;
@@ -16,44 +16,95 @@ public class ToDoApp {
         int primaryChoice; // Used for the main menu
         int secondaryChoice; // Used for the secondary menu
 
-            while (!exit){
+            while (!exit) {
 
                 printMenu();
                 isInt = scanner.hasNextInt();
 
                 if (isInt) {
-                    primaryChoice 
+                    primaryChoice = scanner.nextInt();
+                    scanner.nextLine();
 
+                    if (primaryChoice < 1 || primaryChoice > 4) {
+                        System.out.println("Invalid choice.");
+                        primaryChoice = 4;
+                    }
+
+                } else {
+
+                    System.out.println("Invalid choice.");
+                    primaryChoice = 4;
                 }
 
-                while ()
-                System.out.print("Write down your password: ");
-                password = scanner.nextLine();
+                switch (primaryChoice) {
 
-                if (password.equals("Exit!") || password.equals(accounts.get(foundAccount).getPassword()))
+                    case 1:
+                        logIn();
+                        break;
+                    case 2:
+                        createAccount();
+                        break;
+                    case 3:
+                        printAccountsList();
+                    case 4:
+                        System.out.println("Exiting program.");
+                        exit = true;
+                        break;
 
-
-            //continue with log in
-            // TODO: 18.2.2021 г. Needs to be tested. Can be tested with the temp Account constructor
-            // TODO: 18.2.2021 г. Test BTS vs. normal search
-            } else {
-
-            System.out.println("There is no registered user the e-mail " + email + "\nWould you like to create a new account?"+
-            "\n 1. Yes.\n2. No\nChoose:");
-            // TODO: 18.2.2021 г. Choice goes to create new account method
+                }
             }
     }
 
-    private int returnAccount(String email) {
+    private static void logIn() {
+
+        boolean loggedIn = false;
+        int attemptsAccount = 1;
+        int attemptsPassword = 1;
+        String email;
+
+        do {
+
+            System.out.print("Write down your e-mail: ");
+            email = scanner.nextLine();
+            int elementIndex = returnAccount(email);
+            if (elementIndex >=0) {
+                Account currentAccount =  accounts.get(elementIndex);
+                String password;
+                do {
+                    System.out.print("Write down your password: ");
+                    password = scanner.nextLine();
+
+                    if ()
+                } while (attemptsPassword<=3);
+            }
+
+            attemptsAccount++;
+
+        } while (attemptsAccount<=3);
+
+
+    }
+
+    private static void createAccount() {
+
+
+    }
+
+    private static void printAccountsList(){
+
+
+    }
+
+    private static int returnAccount(String email) {
         Account enteredAccount = new Account(email, "temp");
         int foundAccount = Collections.binarySearch(accounts,enteredAccount,null);
 
         return foundAccount;
     }
 
-    private void printMenu() {
+    private static void printMenu() {
 
-        System.out.println("MAIN MENU: \n1. Log in 2. Create a new account \n3. List of all accounts");
+        System.out.println("MAIN MENU: \n1. Log in 2. Create a new account \n3. List of all accounts \n4. Exit App");
 
     }
     // TODO: 18.2.2021 г. Test BTS using a testing algorithm like printing dots
