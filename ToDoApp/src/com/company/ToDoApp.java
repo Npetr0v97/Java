@@ -4,7 +4,7 @@ import java.util.*;
 
 public class ToDoApp {
     private static Scanner scanner = new Scanner(System.in);
-    private static List<Account> accounts = new ArrayList<>();
+    public static List<Account> accounts = new ArrayList<>();
 
     public static void mainMenu() {
 
@@ -43,9 +43,11 @@ public class ToDoApp {
                         break;
                     case 2:
                         createAccount();
+                        Collections.sort(ToDoApp.accounts);
                         break;
                     case 3:
                         printAccountsList();
+                        break;
                     case 4:
                         System.out.println("Exiting program.");
                         exit = true;
@@ -57,11 +59,11 @@ public class ToDoApp {
 
     private static void logIn() {
 
-        boolean loggedIn = false;
+
         int attemptsAccount = 1;
         int attemptsPassword = 1;
         String email;
-
+        boolean exit = false;
         do {
 
             System.out.print("Write down your e-mail: ");
@@ -74,25 +76,194 @@ public class ToDoApp {
                     System.out.print("Write down your password: ");
                     password = scanner.nextLine();
 
-                    if ()
-                } while (attemptsPassword<=3);
+                    if (currentAccount.getPassword().equals(password)) {
+
+                        System.out.println("Welcome back " + currentAccount.getName());
+
+                        accountMenu(currentAccount);
+
+                        exit=true;
+                        System.out.println("You have successfully logged out.");
+                    } else {
+                        System.out.println("Wrong password.");
+                        attemptsPassword++;
+                    }
+
+                } while (attemptsPassword<=3 && !exit);
+
+
+            } else {
+
+                System.out.println("An account with the e-mail " + email + " doesn't exist.");
+                attemptsAccount++;
+
             }
 
-            attemptsAccount++;
+        } while (attemptsAccount<=3 && !exit);
 
-        } while (attemptsAccount<=3);
+        if (attemptsPassword == 3) {
 
+            System.out.println("You have failed to log in because of trying to use 3 incorrect passwords.");
+        } else if (attemptsAccount == 3) {
+
+            System.out.println("You have failed to log in because of trying to use 3 e-mails that don't exist.");
+        }
+
+    }
+
+    private static void accountMenu(Account account) {
+        int choice;
+        boolean isInt;
+        boolean exit = false;
+        String taskName;
+
+        while (!exit) {
+            printAccountMenu();
+
+            isInt=scanner.hasNextInt();
+
+            if (isInt) {
+
+                choice = scanner.nextInt();
+                scanner.nextLine();
+
+                if (choice < 0 || choice > 10) {
+
+                    System.out.println("Invalid choice.");
+                    choice = 10;
+                }
+            } else {
+
+                System.out.println("Invalid choice.");
+                choice = 10;
+            }
+
+            switch (choice) {
+
+                case 1:
+                    System.out.print("Write down the name of the task: ");
+                    taskName = scanner.nextLine();
+                    account.addTask(taskName);
+                    break;
+                case 2:
+                    System.out.print("Which task do you want to complete: ");
+                    taskName = scanner.nextLine();
+                    account.finishTask(taskName);
+                    break;
+                case 3:
+                    account.addLabelToTask();
+                    break;
+                case 4:
+                    account.removeLabelFromTask();
+                    break;
+                case 5:
+                    System.out.print("Which task do you want to remove: ");
+                    taskName = scanner.nextLine();
+                    account.removeTask(taskName);
+                    break;
+                case 6:
+                    System.out.print("What do you want to search for: ");
+                    taskName = scanner.nextLine();
+                    account.searchTask(taskName);
+                    break;
+                case 7:
+                    System.out.println(account);
+                    break;
+                case 8:
+                    chooseTaskToShow(account);
+                    break;
+                case 9:
+                    System.out.print("Write down current password: ");
+                    String password = scanner.nextLine();
+                    account.setNewEmail(password);
+                    break;
+                default:
+                    System.out.println("Logging out");
+                    exit=true;
+                    break;
+
+            }
+        }
+
+    }
+
+    private static void chooseTaskToShow(Account account) {
+        int choice;
+        boolean isInt;
+
+        System.out.print("Which task do you want to show: \n1. All \n2. Done \n3. Open \nChoose: ");
+        isInt=scanner.hasNextInt();
+
+        if (isInt) {
+
+            choice = scanner.nextInt();
+            scanner.nextLine();
+
+            if (choice < 0 || choice > 3) {
+
+                System.out.println("Invalid choice. All task are printed by default.");
+                choice = 1;
+            }
+        } else {
+
+            System.out.println("Invalid choice. All task are printed by default.");
+            choice = 1;
+        }
+
+        switch (choice) {
+
+            case 1:
+                account.showTasks(Account.SearchType.all);
+                break;
+            case 2:
+                account.showTasks(Account.SearchType.open);
+                break;
+            default:
+                account.showTasks(Account.SearchType.done);
+                break;
+        }
 
     }
 
     private static void createAccount() {
 
+        System.out.print("Write down your e-mail:");
+        String email = scanner.nextLine();
 
+        accounts.add(new Account(email));
     }
 
     private static void printAccountsList(){
+        int passwordAttempts = 1;
 
 
+        while (passwordAttempts<=3) {
+            System.out.print("Write down the admin's password: ");
+            String adminPassword = scanner.nextLine();
+
+            if (adminPassword.equals("admin123")) {
+
+                System.out.println("Authentication successful.");
+                int counter = 1;
+                System.out.println("Accounts list----------------");
+                for (Account a :accounts) {
+
+                    System.out.println(counter+ ". " + a.toString());
+                    counter++;
+                }
+
+                break;
+
+            } else {
+                System.out.println("Authentication unsuccessful. ");
+                passwordAttempts++;
+            }
+        }
+
+        if (passwordAttempts > 3) {
+
+            System.out.println("You will return to the main menu due to 3 unsuccessful authentications.");
+        }
     }
 
     private static int returnAccount(String email) {
@@ -104,13 +275,17 @@ public class ToDoApp {
 
     private static void printMenu() {
 
-        System.out.println("MAIN MENU: \n1. Log in 2. Create a new account \n3. List of all accounts \n4. Exit App");
+        System.out.print("MAIN MENU: \n1. Log in \n2. Create a new account \n3. List of all accounts \n4. Exit App \nMake a choice: ");
 
     }
-    // TODO: 18.2.2021 г. Test BTS using a testing algorithm like printing dots
-    // TODO: 11.1.2021 г. table of accounts
-    // TODO: 11.1.2021 г. implement BST
-    // TODO: 11.1.2021 г. Login menu
-    // TODO: 27.1.2021 г. validated e-mail with @ than check if is contained in the table
+
+    private static void printAccountMenu(){
+
+        System.out.print("ACCOUNT MENU: \n1. Add a task \n2. Complete a task" +
+                "\n3. Add a label to an existing task \n4. Remove a label from an existing task" +
+                "\n5. Remove a task \n6. Search for a task \n7. Account info \n8. Show tasks" +
+                "\n9. Change e-mail address \n10. Exit \nChoose: ");
+    }
+
 
 }

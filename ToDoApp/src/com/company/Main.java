@@ -1,6 +1,7 @@
 package com.company;
 
 import java.awt.*;
+import java.util.Collections;
 
 public class Main {
 
@@ -31,8 +32,15 @@ public class Main {
 
 
         nikolay.searchTask("home");*/
-        // TODO: 11.1.2021 г. Main menu
 
+        ToDoApp.accounts.add(new Account("petrov_n@econt.com","123"));
+        ToDoApp.accounts.add(new Account("petrov@econt.com","123"));
+     //   ToDoApp.accounts.add(new Account("petrov1@econt.com","123"));
+        ToDoApp.accounts.add(new Account("petrov2@econt.com","123"));
+        ToDoApp.accounts.add(new Account("d_peev@econt.com","123"));
+        ToDoApp.accounts.add(new Account("randomuser@econt.com","123"));
+        Collections.sort(ToDoApp.accounts);
 
+        ToDoApp.mainMenu();
     }
 }

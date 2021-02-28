@@ -324,7 +324,7 @@ public class Account implements Comparable<Account>{
             while (it.hasNext()) {
                 Task currentTask = it.next();
                 if (currentTask.isFinished()) {
-                    System.out.println(counter + ". " + it.next().toString());
+                    System.out.println(counter + ". " + currentTask.toString());
                     counter++;
                 }
             }
@@ -333,7 +333,7 @@ public class Account implements Comparable<Account>{
             while (it.hasNext()) {
                 Task currentTask = it.next();
                 if (!currentTask.isFinished()) {
-                    System.out.println(counter + ". " + it.next().toString());
+                    System.out.println(counter + ". " + currentTask.toString());
                     counter++;
                 }
             }
@@ -405,7 +405,7 @@ public class Account implements Comparable<Account>{
         boolean emailChanged = false;
         int passwordAttempts = 0;
 
-        while (passwordAttempts < 3) {
+        while (passwordAttempts < 3 && !emailChanged) {
 
             if (password.equals(this.password)) {
 
