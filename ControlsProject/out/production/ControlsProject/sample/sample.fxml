@@ -12,8 +12,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ChoiceBox?>
 <GridPane fx:controller="sample.Controller"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" gridLinesVisible="true">
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" gridLinesVisible="false">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Click me">
         <graphic>
             <ImageView>
@@ -21,7 +27,7 @@
             </ImageView>
         </graphic>
     </Button>
-    <Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="This is a label.This is a label.This is a label.This is a label" textFill="blue" wrapText="true">
+    <Label GridPane.rowIndex="0" GridPane.columnIndex="1" text="This is a label" textFill="blue" wrapText="true">
         <font>
             <Font name="Arial italic" size="12"/>
         </font>
@@ -35,9 +41,12 @@
     <fx:define>
         <ToggleGroup fx:id="colorToggleGroup"/>
     </fx:define>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="2" text="Red" toggleGroup="$colorToggleGroup"/>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="3" text="Blue" toggleGroup="$colorToggleGroup" selected="true"/>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="4" text="Green" toggleGroup="$colorToggleGroup"/>
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="2">
+        <RadioButton  text="Red" toggleGroup="$colorToggleGroup"/>
+        <RadioButton  text="Blue" toggleGroup="$colorToggleGroup" selected="true"/>
+        <RadioButton toggleGroup="$colorToggleGroup"/>
+    </VBox>
+
     <VBox GridPane.rowIndex="0" GridPane.columnIndex="5">
         <CheckBox text="Dog" />
         <CheckBox text="Cat" />
@@ -48,4 +57,34 @@
         <ToggleButton text="Hello" />
         <ToggleButton text="Good Bye" />
     </HBox>
+
+    <TextField GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <PasswordField GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <ComboBox GridPane.rowIndex="1" GridPane.columnIndex="2" GridPane.columnSpan="3">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="This is Option 1" />
+                <String fx:value="Option 2"/>
+                <String fx:value="Option 3"/>
+                <String fx:value="Option 4"/>
+                <String fx:value="Option 5"/>
+            </FXCollections>
+        </items>
+        <value>
+            <String fx:value="Option 2"/>
+        </value>
+    </ComboBox>
+    <ChoiceBox GridPane.rowIndex="1" GridPane.columnIndex="5">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="This is Option 1" />
+                <String fx:value="Option 2"/>
+                <String fx:value="Option 3"/>
+                <String fx:value="Option 4"/>
+                <String fx:value="Option 5"/>
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+
+
 </GridPane>
