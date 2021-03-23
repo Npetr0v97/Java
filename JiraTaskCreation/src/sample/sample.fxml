@@ -62,7 +62,7 @@
                 <VBox>
                     <Label text="Project" style="-fx-font-family: Arial, Helvetica, sans-serif; -fx-font-size: 12px;
         -fx-font-weight: 700; -fx-text-fill: #999999;"/>
-                    <ComboBox prefWidth="200">
+                    <ComboBox fx:id="projects" prefWidth="200">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Service desk"/>
@@ -80,7 +80,7 @@
                     </padding>
                     <Label text="Type" style="-fx-font-family: Arial, Helvetica, sans-serif; -fx-font-size: 12px;
         -fx-font-weight: 700; -fx-text-fill: #999999;"/>
-                    <ComboBox prefWidth="200">
+                    <ComboBox fx:id="issueTypes" prefWidth="200">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Service Request"/>
@@ -113,7 +113,7 @@
 
                     <Label text="Summary" style="-fx-font-family: Arial, Helvetica, sans-serif; -fx-font-size: 12px;
         -fx-font-weight: 700; -fx-text-fill: #999999;"/>
-                    <TextField maxWidth="400"/>
+                    <TextField fx:id="summary" maxWidth="400"/>
                 </VBox>
 
                 <VBox>
@@ -122,7 +122,7 @@
                     </padding>
                     <Label text="Due date" style="-fx-font-family: Arial, Helvetica, sans-serif; -fx-font-size: 12px;
         -fx-font-weight: 700; -fx-text-fill: #999999;"/>
-                    <DatePicker prefWidth="200"/>
+                    <DatePicker fx:id="dueDate" prefWidth="200"/>
                 </VBox>
 
                 <VBox>
@@ -131,7 +131,7 @@
                     </padding>
                     <Label text="Description" style="-fx-font-family: Arial, Helvetica, sans-serif; -fx-font-size: 12px;
         -fx-font-weight: 700; -fx-text-fill: #999999;"/>
-                    <TextArea maxWidth="400"/>
+                    <TextArea fx:id="description" maxWidth="400"/>
                 </VBox>
 
                 <VBox>
@@ -140,7 +140,7 @@
                     </padding>
                     <Label text="Assignee" style="-fx-font-family: Arial, Helvetica, sans-serif; -fx-font-size: 12px;
         -fx-font-weight: 700; -fx-text-fill: #999999;"/>
-                    <ComboBox prefWidth="200">
+                    <ComboBox fx:id="assignees" prefWidth="200">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                                 <String fx:value="Nikolay Petrov"/>

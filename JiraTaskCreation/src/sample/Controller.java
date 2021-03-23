@@ -2,9 +2,10 @@ package sample;
 
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.util.LinkedList;
 
 public class Controller {
 
@@ -13,7 +14,23 @@ public class Controller {
     private Label importConfigureActions;
     @FXML
     private Button cancelButton;
+    @FXML
+    private Button createButton;
+    @FXML
+    private ComboBox<String> projects;
+    @FXML
+    private ComboBox<String> issueTypes;
+    @FXML
+    private TextField summary;
+    @FXML
+    private DatePicker dueDate;
+    @FXML
+    private TextArea description;
+    @FXML
+    private ComboBox<String> assignees;
 
+
+    private LinkedList<Task> tasks = new LinkedList<>();
 
     @FXML
     public void initializeIssueImport(Event event) {
@@ -48,7 +65,19 @@ public class Controller {
         stage.close();
     }
 
-    // TODO: 23.3.2021 г. Make Create button inactive if fields are missing
+    @FXML
+    public void checkFieldsFilled(Event event) {
+
+
+    }
+
+    @FXML
+    public void initialize() {
+
+        createButton.setDisable(true);
+    }
+
+    // TODO: 23.3.2021 г. Make Create button inactive if fields are missing -> onKeyReleased for all fields
     
 
 }
