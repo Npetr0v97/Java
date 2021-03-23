@@ -162,9 +162,9 @@
                 <Insets bottom="5"/>
             </padding>
         </CheckBox>
-        <Button text="Create" style="-fx-background-color:#0052cc; -fx-border-radius:10px; -fx-font-weight:700;
+        <Button fx:id="createButton" onAction="#createIssue" text="Create" style="-fx-background-color:#0052cc; -fx-border-radius:10px; -fx-font-weight:700;
 -fx-text-fill: #ffffff; -fx-font-size: 12px;" prefHeight="30" prefWidth="75"/>
-        <Button text="Cancel" style="-fx-background-color: transparent; -fx-font-weight:700;
+        <Button fx:id="cancelButton"  onAction="#cancel" text="Cancel" style="-fx-background-color: transparent; -fx-font-weight:700;
 -fx-text-fill: #0052cc; -fx-font-size: 12px; -fx-cursor:pointer"
                 prefHeight="30" prefWidth="75"/>
     </HBox>
