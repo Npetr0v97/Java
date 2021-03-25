@@ -65,16 +65,34 @@ public class Controller {
         stage.close();
     }
 
-    @FXML
-    public void checkFieldsFilled(Event event) {
-
-
-    }
 
     @FXML
     public void initialize() {
 
         createButton.setDisable(true);
+    }
+
+    @FXML
+    public void checkAction() {
+
+        System.out.println(dueDate.getValue().toString());
+    }
+
+    @FXML
+    public void checkEmptyFields() {
+        System.out.println("checkEmptyFields() executed");
+        System.out.println(!assignees.getItems().isEmpty());
+        if (!projects.getValue().isEmpty() && !issueTypes.getValue().isEmpty() && !summary.getText().isEmpty()
+         && !description.getText().isEmpty() && !assignees.getValue().isEmpty()
+                && !dueDate.getValue().toString().isEmpty()) {
+
+            createButton.setDisable(false);
+            //&& !dueDate.getValue().toString().isEmpty()
+        } else {
+            createButton.setDisable(true);
+        }
+
+
     }
 
     // TODO: 23.3.2021 г. Make Create button inactive if fields are missing -> onKeyReleased for all fields
