@@ -28,6 +28,8 @@ public class Controller {
     private TextArea description;
     @FXML
     private ComboBox<String> assignees;
+    @FXML
+    private CheckBox createAnother;
 
 
     private LinkedList<Task> tasks = new LinkedList<>();
@@ -55,10 +57,45 @@ public class Controller {
 
         System.out.println("Issue created");
         System.out.println(event.getSource());
+        String project = projects.getValue();
+        String issueType=issueTypes.getValue();
+        String assignee = assignees.getValue();
+        String taskDueDate = dueDate.getValue().toString();
+        String taskSummary = summary.getText();
+        String taskDescription = description.getText();
+
+
+        Task task = new Task(assignee, project, issueType, taskSummary, taskDescription,taskDueDate);
+        tasks.add(task);
+
+        System.out.println(task);
+
+        summary.clear();
+        description.clear();
+        dueDate.setValue(null);
+        assignees.setValue(null);
+
+
+        if (!createAnother.isSelected()) {
+            projects.setValue(null);
+            issueTypes.setValue(null);
+        }
+
+
+
     }
 
     @FXML
     public void cancel(Event event) {
+
+        for (Task task : tasks) {
+
+            System.out.println("Task: "+ task.getIssueKey() +"\nSummary: " + task.getSummary() +
+                    "\nDescription: " + task.getDescription() + "\nAssignee: " + task.getAssignee() +
+                    "\nDue date: " + task.getDueDate());
+            System.out.println("===================================");
+        }
+
         System.out.println("Closing button");
         System.out.println(event.getSource());
         Stage stage = (Stage) cancelButton.getScene().getWindow();
@@ -81,21 +118,25 @@ public class Controller {
     @FXML
     public void checkEmptyFields() {
         System.out.println("checkEmptyFields() executed");
-        System.out.println(!assignees.getItems().isEmpty());
-        if (!projects.getValue().isEmpty() && !issueTypes.getValue().isEmpty() && !summary.getText().isEmpty()
-         && !description.getText().isEmpty() && !assignees.getValue().isEmpty()
-                && !dueDate.getValue().toString().isEmpty()) {
+        if (projects.getValue() != null && issueTypes.getValue()!=null && assignees.getValue()!=null && dueDate.getValue()!=null
+         && !summary.getText().isEmpty() && !description.getText().isEmpty()) {
 
-            createButton.setDisable(false);
-            //&& !dueDate.getValue().toString().isEmpty()
-        } else {
-            createButton.setDisable(true);
-        }
+                createButton.setDisable(false);
+
+            } else {
+
+
+                createButton.setDisable(true);
+
+
+            }
 
 
     }
 
-    // TODO: 23.3.2021 г. Make Create button inactive if fields are missing -> onKeyReleased for all fields
+
+
+
     
 
 }
