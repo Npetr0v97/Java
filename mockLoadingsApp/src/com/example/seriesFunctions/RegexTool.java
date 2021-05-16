@@ -6,8 +6,13 @@ import java.util.regex.Pattern;
 
 public class RegexTool {
 
-    public static ArrayList<String> searchLoadings(String text) {
+    private static int ID = 1;
+
+    public static String searchLoadings(String text) {
         ArrayList<String> loadings = new ArrayList<>();
+        ArrayList<String> loadingURLs = new ArrayList<>();
+
+        String newText = text; //текстът, който ще бъде променен в последствие
 
         String tokens[] = text.split(" "); //Текстът се разбива на токени
         String loading; //дефинира се променилива за товарителниците
@@ -26,17 +31,24 @@ public class RegexTool {
             if (loading!=null) {
 
                 loadings.add(loading); //ако има резултата, той се добавя в листа
+                loadingURLs.add("["+loading+"|https://econt-bg.com/page.php?page=loading_order&id="+ID+"&returnAction=onCloseEditedLoading]");
+                ID++;
             }
         }
         if (!loadings.isEmpty()){ // извеждане на листа с товарителници
-            for (String s: loadings) {
-                System.out.println(s);
+            for (int i = 0; i < loadings.size(); i++) {
+
+                newText.replaceAll(loadings.get(i),loadingURLs.get(i));
+
+                //todo Тук replaceAll функцията връща нов стринг с новите стойности, тъй като веднъж инициализиран, Стрингът е immutable. Трябва да се оправи кодът
+                //да присвоява промененият String На нова променлива
+
             }
         } else {
 
-            System.out.println("No loadings found"); //или съобщение, че няма намерени резултати
+            System.out.println("No changes were made to the original text"); //или съобщение, че няма намерени резултати
         }
 
-        return loadings;
+        return newText;
     }
 }
