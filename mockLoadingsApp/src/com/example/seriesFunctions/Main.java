@@ -15,9 +15,16 @@ public class Main {
 
         System.out.println("Old text: \n" + text);
 
+        RegexToolFinal.addLoading(105102103456l);
+        RegexToolFinal.addLoading(53001234567891l);
+        RegexToolFinal.addLoading(1051021034512l);
+        RegexToolFinal.addLoading(1051021034533l);
+
+        RegexToolFinal.printLoadings();
+
 //        ArrayList<String> loadings = RegexTool.searchLoadings(text);
 
-        System.out.println("New text: \n" + RegexTool.searchLoadings(text));
+       // System.out.println("New text: \n" + RegexTool.searchLoadings(text));
 
     }
 }
