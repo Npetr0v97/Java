@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexTool {
+public class RegexToolFinal {
 
+    ArrayList<Loading> loadings = new ArrayList<>();
 
-    private static int ID = 1;
+    // TODO: 19.5.2021 г. създаване на фиктивна база с данни с товарителници
+    // TODO: 19.5.2021 г. да се приложи аналогичен алгоритъм. Неоткритите товарителници да се извеждат отделно в конзолата 
 
     public static String searchLoadings(String text) {
         ArrayList<String> loadings = new ArrayList<>();
@@ -19,7 +21,7 @@ public class RegexTool {
         String loading; //дефинира се променилива за товарителниците
         Matcher matcher; //дефинира се матчер
         Pattern loadingsApi = Pattern.compile("(105)\\d{9}|(5300)\\d{10}", Pattern.MULTILINE); //сглобява се патерн, който следи за товарителници през АПИ
-                                                                                                    // или за товарителници, подготвени през рецепция
+        // или за товарителници, подготвени през рецепция
 
         for (int i = 0; i < tokens.length; i++) { //обхождат се токените
             loading = null; //занулява се променливата на товарителницата
