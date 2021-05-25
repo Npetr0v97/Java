@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 public class RegexToolFinal {
 
     private static ArrayList<Loading> loadings = new ArrayList<>();
+    private static ArrayList<SearchedLoading> searchedLoadings = new ArrayList<>();
 
 
     public static void addLoading(long number) {
@@ -35,19 +36,17 @@ public class RegexToolFinal {
     // TODO: 19.5.2021 г. да се приложи аналогичен алгоритъм. Неоткритите товарителници да се извеждат отделно в конзолата 
 
     public static String searchLoadings(String text) {
-        ArrayList<String> loadings = new ArrayList<>();
-        ArrayList<String> loadingURLs = new ArrayList<>();
+        String newText=text;
+        String tokens[] = text.split(" ");
 
-        String newText = text; //текстът, който ще бъде променен в последствие
 
-        String tokens[] = text.split(" "); //Текстът се разбива на токени
         String loading; //дефинира се променилива за товарителниците
-        Matcher matcher; //дефинира се матчер
         Pattern loadingsApi = Pattern.compile("(105)\\d{9}|(5300)\\d{10}", Pattern.MULTILINE); //сглобява се патерн, който следи за товарителници през АПИ
-        // или за товарителници, подготвени през рецепция
 
         for (int i = 0; i < tokens.length; i++) { //обхождат се токените
             loading = null; //занулява се променливата на товарителницата
+            Matcher matcher;
+
             matcher = loadingsApi.matcher(tokens[i]); // сравнява се дали патерна съществува в токена
 
             if (matcher.find()) { //ако съществува
@@ -56,23 +55,69 @@ public class RegexToolFinal {
 
             if (loading!=null) {
 
-                loadings.add(loading); //ако има резултата, той се добавя в листа
-                loadingURLs.add("["+loading+"|https://econt-bg.com/page.php?page=loading_order&id="+"X"+"&returnAction=onCloseEditedLoading]");
+                Loading tempLoading = searchLoading(Long.parseLong(loading));
+                if (tempLoading!=null) {
 
+                    searchedLoadings.add(new SearchedLoading(tempLoading.getNumber(), tempLoading.getID(), true));
+                } else {
+                    searchedLoadings.add(new SearchedLoading(Long.parseLong(loading), -1, false));
+
+                }
+
+
+                //loadingURLs.add("["+loading+"|https://econt-bg.com/page.php?page=loading_order&id="+"X"+"&returnAction=onCloseEditedLoading]");
+
+            } else {
+                System.out.println(tokens[i]+" is not a loading");
             }
-        }
-        if (!loadings.isEmpty()){ // извеждане на листа с товарителници
-            for (int i = 0; i < loadings.size(); i++) {
-
-                newText=newText.replaceAll(loadings.get(i),loadingURLs.get(i));
 
 
-            }
-        } else {
-
-            System.out.println("No changes were made to the original text"); //или съобщение, че няма намерени резултати
         }
 
-        return newText;
+        for (SearchedLoading sl : searchedLoadings) {
+
+            System.out.println(sl);
+        }
+//        // или за товарителници, подготвени през рецепция
+//        ArrayList<String> loadings = new ArrayList<>();
+//        ArrayList<String> loadingURLs = new ArrayList<>();
+//
+//        String newText = text; //текстът, който ще бъде променен в последствие
+//
+//        String tokens[] = text.split(" "); //Текстът се разбива на токени
+//        String loading; //дефинира се променилива за товарителниците
+//        Matcher matcher; //дефинира се матчер
+//        Pattern loadingsApi = Pattern.compile("(105)\\d{9}|(5300)\\d{10}", Pattern.MULTILINE); //сглобява се патерн, който следи за товарителници през АПИ
+//        // или за товарителници, подготвени през рецепция
+//
+//        for (int i = 0; i < tokens.length; i++) { //обхождат се токените
+//            loading = null; //занулява се променливата на товарителницата
+//            matcher = loadingsApi.matcher(tokens[i]); // сравнява се дали патерна съществува в токена
+//
+//            if (matcher.find()) { //ако съществува
+//                loading = matcher.group(); //loading присвоява резултата
+//            }
+//
+//            if (loading!=null) {
+//
+//                loadings.add(loading); //ако има резултата, той се добавя в листа
+//                loadingURLs.add("["+loading+"|https://econt-bg.com/page.php?page=loading_order&id="+"X"+"&returnAction=onCloseEditedLoading]");
+//
+//            }
+//        }
+//        if (!loadings.isEmpty()){ // извеждане на листа с товарителници
+//            for (int i = 0; i < loadings.size(); i++) {
+//
+//                newText=newText.replaceAll(loadings.get(i),loadingURLs.get(i));
+//
+//
+//            }
+//        } else {
+//
+//            System.out.println("No changes were made to the original text"); //или съобщение, че няма намерени резултати
+//        }
+//
+//        return newText;
+        return null;
     }
 }

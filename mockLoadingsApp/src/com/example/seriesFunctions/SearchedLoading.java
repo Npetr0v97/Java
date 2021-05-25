@@ -14,5 +14,15 @@ public class SearchedLoading extends Loading{
         return isFound;
     }
 
+    @Override
+    public String toString() {
+
+        return "SearchedLoading{" +
+                "number=" +  this.getNumber() + ", " +
+                "ID=" + this.getID() + ", " +
+                "isFound=" + isFound +
+                '}';
+    }
+
     //// TODO: 19.5.2021 г. генерирана на товарителници с маркер
 }
