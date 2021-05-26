@@ -1,4 +1,4 @@
-package com.company;
+package com.example.seriesFunctions;
 
 import java.util.HashMap;
 import java.util.Map;
