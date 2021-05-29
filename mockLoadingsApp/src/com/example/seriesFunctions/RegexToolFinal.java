@@ -1,21 +1,153 @@
 package com.example.seriesFunctions;
 
+import javax.management.StandardEmitterMBean;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexToolFinal {
+public class RegexToolFinal  {
 
-    private static ArrayList<Loading> loadings = new ArrayList<>();
-    private static ArrayList<SearchedLoading> searchedLoadings = new ArrayList<>();
+    private ArrayList<Loading> loadings;
+    private ArrayList<SearchedLoading> searchedLoadings;
+    private static Scanner scanner;
+    private FileWriter loadingsFile;
+    private int idCounter=1;
 
 
-    public static void addLoading(long number) {
+    public RegexToolFinal() {
 
-        loadings.add(new Loading(number));
+        loadings = new ArrayList<>();
+        searchedLoadings = new ArrayList<>();
+
+
+//        try {
+//            loadingsFile = new FileWriter("loadings.txt", true);
+////            loadingsFile.write("\n");
+//        } catch (IOException e) {
+//
+//            e.printStackTrace();
+//        }
+
+
     }
 
-    public static void printLoadings() {
+    public void addLoading(long number) {
+
+
+
+        if (checkLoadingNumber(number) == -1l) {
+            try {
+                loadingsFile = new FileWriter("loadings.txt", true);
+                Loading tempLoading = new Loading(number, returnLastLoadingId()+idCounter);
+                idCounter++;
+                String tempID = String.valueOf(tempLoading.getID());
+                String tempNumber = String.valueOf(tempLoading.getNumber());
+
+                System.out.println(tempLoading.getID()+", " + tempLoading.getNumber());
+                loadingsFile.write(tempID+", " + tempNumber+"\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+
+            System.out.println("There is already a loading with the number " + number);
+        }
+
+//        loadings.add(new Loading(number));
+    }
+
+    public String returnLoadingURL(long number) throws IOException{
+
+        Loading tempLoading = checkLoadingObj(number);
+
+        if (tempLoading!=null) {
+
+            return "["+tempLoading.getNumber()+"|https://econt-bg.com/page.php?page=loading_order&id="+tempLoading.getID()+"&returnAction=onCloseEditedLoading]";
+        }
+
+        return "Loading with the number " + number + " was not found";
+    }
+
+    public long checkLoadingNumber(long number) {
+
+        try {
+            scanner = new Scanner(new FileReader("loadings.txt"));
+            scanner.useDelimiter(",");
+
+            while (scanner.hasNextLine()) {
+
+                scanner.next();
+                scanner.skip(scanner.delimiter());
+                String tempNext=scanner.nextLine().trim();
+                long tempNumber = Long.parseLong(tempNext);
+                if (number == tempNumber) {
+                    return tempNumber;
+                }
+
+
+            }
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+
+        return -1;
+    }
+
+    public int returnLastLoadingId() throws IOException{
+
+        scanner = new Scanner(new FileReader("loadings.txt"));
+        scanner.useDelimiter(",");
+        int tempID=-1;
+        while (scanner.hasNextLine()) {
+
+            tempID = scanner.nextInt();
+            scanner.nextLine();
+
+
+        }
+
+        return tempID;
+    }
+
+    public Loading checkLoadingObj(long number) throws IOException{
+
+        scanner = new Scanner(new FileReader("loadings.txt"));
+
+        while (scanner.hasNextLine()) {
+
+            scanner.useDelimiter(",");
+            int tempInt = scanner.nextInt();
+            scanner.skip(scanner.delimiter());
+            String tempNext=scanner.nextLine().trim();
+            long tempNumber = Long.parseLong(tempNext);
+            if (number == tempNumber) {
+                return new Loading(tempNumber, tempInt);
+            }
+
+
+        }
+
+        return null;
+    }
+
+    public void cleanUp() throws IOException{
+
+
+
+        if (loadingsFile!=null) {
+
+            loadingsFile.close();
+        }
+
+    }
+
+    public void printLoadings() {
 
         for (Loading l : loadings) {
 
@@ -23,7 +155,7 @@ public class RegexToolFinal {
         }
     }
 
-    public static Loading searchLoading(long number) {
+    public Loading searchLoading(long number) {
 
         for (Loading l : loadings) {
 
@@ -35,7 +167,7 @@ public class RegexToolFinal {
     }
     // TODO: 19.5.2021 г. да се приложи аналогичен алгоритъм. Неоткритите товарителници да се извеждат отделно в конзолата 
 
-    public static String searchLoadings(String text) {
+    public String searchLoadings(String text) {
         String newText=text;
         String tokens[] = text.split(" ");
 
