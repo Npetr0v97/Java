@@ -1,5 +1,6 @@
 package com.timbuchalka;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -54,16 +55,16 @@ public class Locations implements Map<Integer, Location> {
 
     static {
 
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(new FileReader("locations.txt"));
+
+        try (Scanner scanner = new Scanner(new FileReader("locations_big.txt"))){
+
             scanner.useDelimiter(",");
             while (scanner.hasNextLine()) {
 
                 int loc = scanner.nextInt();
                 scanner.skip(scanner.delimiter());
                 String description = scanner.nextLine();
-                System.out.println("importer loc: " + loc + ": " + description);
+                System.out.println("imported loc: " + loc + ": " + description);
                 Map<String, Integer> tempExit = new HashMap<>();
                 locations.put(loc, new Location(loc, description, tempExit));
             }
@@ -73,12 +74,34 @@ public class Locations implements Map<Integer, Location> {
         } catch (IOException e) {
 
             e.printStackTrace();
-        } finally {
-            if (scanner != null) {
-
-                scanner.close();
-            }
         }
+
+            try (BufferedReader dirFile = new BufferedReader(new FileReader("directions_big.txt"))){
+                String input;
+                while ((input = dirFile.readLine())!=null) {
+//                    int loc = scanner.nextInt();
+//                    scanner.skip(scanner.delimiter());
+//                    String direction = scanner.next();
+//                    scanner.skip(scanner.delimiter());
+//                    String dest =scanner.nextLine();
+//                    int destination = Integer.parseInt(dest.trim());
+                    String[] data = input.split(",");
+                    int loc = Integer.parseInt(data[0]);
+                    String direction = data[1];
+                    int destination = Integer.parseInt(data[2].trim());
+                    System.out.println(loc + ": " + direction + ": " + destination);
+                    Location location = locations.get(loc);
+                    location.addExit(direction, destination);
+
+
+                }
+            } catch(IOException e){
+                        e.printStackTrace();
+            }
+
+        }
+
+
        /* Map<String, Integer> tempExit = new HashMap<String, Integer>();
         locations.put(0, new Location(0, "You are sitting in front of a computer learning Java",null));
 
@@ -107,7 +130,7 @@ public class Locations implements Map<Integer, Location> {
         tempExit.put("W", 2);
         locations.put(5, new Location(5, "You are in the forest",tempExit));
 */
-    }
+
     @Override
     public int size() {
         return locations.size();
@@ -168,4 +191,5 @@ public class Locations implements Map<Integer, Location> {
     public Set<Entry<Integer, Location>> entrySet() {
         return locations.entrySet();
     }
+
 }
