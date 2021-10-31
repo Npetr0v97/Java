@@ -25,7 +25,7 @@ public class Problem1 {
                     sum+=x;
                 }
                 if (y<1000) {
-                    sum+=y;
+                   sum+=y;
 
                 }
                 n++;
