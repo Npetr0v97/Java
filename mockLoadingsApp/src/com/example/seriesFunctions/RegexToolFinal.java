@@ -9,7 +9,7 @@ public class RegexToolFinal {
     ArrayList<Loading> loadings = new ArrayList<>();
 
     // TODO: 19.5.2021 г. създаване на фиктивна база с данни с товарителници
-    // TODO: 19.5.2021 г. да се приложи аналогичен алгоритъм. Неоткритите товарителници да се извеждат отделно в конзолата 
+    // TODO: 19.5.2021 г. да се приложи аналогичен алгоритъм. Неоткритите товарителници да се извеждат отделно в конзолата
 
     public static String searchLoadings(String text) {
         ArrayList<String> loadings = new ArrayList<>();
