@@ -13,6 +13,7 @@ public class Problem1 {
         int sum=0;
         int counter=0;
         while (!end) {
+            
             counter++;
             int x=n*3;
             int y=n*5;
