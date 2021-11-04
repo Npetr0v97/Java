@@ -9,7 +9,7 @@ public class Problem6 {
 
         int sqSum=0,sumSq=0;
 
-        for (int i=1; i<=100; i++) {
+        for (int i=10; i<=100; i++) {
 
             sumSq+=i*i;
             sqSum+=i;

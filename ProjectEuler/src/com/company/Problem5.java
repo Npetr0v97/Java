@@ -12,7 +12,7 @@ public class Problem5 {
         while (true) {
             counter++;
 
-            for (int i=10;i<=20;i++) {
+            for (int i=11;i<=20;i++) {
 
                 if (number%i==0 && i==20) {
                     evenlyDivisible=true;
