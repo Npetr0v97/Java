@@ -84,4 +84,23 @@ public class Problem8 {
 
         System.out.println("Answer:" +currentMaxResult + " / Cycles: "+cycles);
     }
+
+    private class IntArray {
+
+        public int[] x= new int[13];
+
+        public IntArray(){
+
+        }
+
+        public int[] getX() {
+
+            return x;
+        }
+
+        public void setX(int[] x) {
+
+            this.x = x;
+        }
+    }
 }
